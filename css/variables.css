@@ -1,0 +1,50 @@
+/* variables.css */
+:root {
+  /* --- 深色模式 (預設) --- */
+  --color-bg: #121212;
+  --color-nav-bg: rgba(18, 18, 18, 0.7); /* 深色毛玻璃背景 */
+  --color-text-main: rgba(255, 255, 255, 0.84);
+  --color-text-sub: rgba(255, 255, 255, 0.6);
+  --color-accent: #C68B59;          /* 復古焦糖橘 */
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-logo: #FFFFFF;
+  
+  /* 字體與佈局 */
+  --font-serif: "Noto Serif TC", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --max-width-content: 720px;
+  --spacing-section: 80px;
+}
+
+body.light-theme {
+  /* --- 白色模式 --- */
+  --color-bg: #ffffff;
+  --color-nav-bg: rgba(255, 255, 255, 0.8); /* 淺色毛玻璃背景 */
+  --color-text-main: rgba(0, 0, 0, 0.84);
+  --color-text-sub: rgba(0, 0, 0, 0.54);
+  --color-accent: #1A8917;          /* 切換為 Medium 綠 (或保留橘色) */
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-logo: #000000;
+}
+
+/* 基礎標籤樣式連動變數 */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  margin: 0;
+}
+
+h1, h2, h3, .user-id {
+  color: var(--color-text-main) !important;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity 0.2s, color 0.4s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}

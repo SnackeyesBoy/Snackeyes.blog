@@ -1,0 +1,559 @@
+/* 初始隱藏狀態 */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s cubic-bezier(0.2, 0.6, 0.2, 1); /* 高級感的貝茲曲線 */
+}
+
+/* 啟動後的狀態 */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* style.css - 存放 Medium 風格組件的 CSS */
+
+.navbar {
+  background-color: var(--color-nav-bg);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+/* 如果切換到白底模式，也要調整半透明顏色 */
+body.light-theme .navbar {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* 調整選單與按鈕的距離 */
+}
+
+.theme-btn {
+  background: var(--color-border);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+  transform: scale(1.1);
+  background: var(--color-accent);
+}
+
+/* 用 Emoji 或 Font Awesome 填入圖示 */
+.theme-btn::after {
+  content: '🌙'; /* 預設深色模式顯示月亮 */
+  font-size: 16px;
+}
+
+body.light-theme .theme-btn::after {
+  content: '☀️'; /* 白底模式顯示太陽 */
+}
+
+.nav-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+}
+
+.nav-logo {
+  /* font-weight: 600;
+  color: #FFFFFF;
+  font-size: 1.1rem; */
+  font-weight: 700;
+  color: var(--color-logo);
+  font-size: 1.2rem;
+  transition: color 0.4s ease;
+}
+
+.nav-links a {
+  margin-left: 24px;
+  color: var(--color-text-sub);
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+  color: var(--color-text-main);
+}
+
+/* Main Content */
+.main-content {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero */
+.hero {
+  padding: calc(var(--spacing-section) * 1.5) 0;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--spacing-section);
+}
+
+.hero-container{
+  display: flex;
+  align-items: center;  /* 垂直置中 */
+  gap: 50px;           /* 元件之間的間距 */
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px 0;
+  
+}
+
+.hero-info{
+  flex: 1;
+  /* display:contents;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+  margin: 0 auto; */
+  /* border-bottom: 1px solid var(--color-border);*/
+  
+}
+
+.hero-name{
+  flex: 1;
+  
+}
+
+/* .hero-name p{
+  margin: ;
+  padding: 0px;
+} */
+
+
+.hero-title {
+  font-size: 3.2rem; /* Medium 的大標題 */
+  margin-bottom: 12px;
+}
+
+.hero-img {
+  flex: 0 0 200px; /* 圖片容器固定寬度 200px，不隨文字伸縮 */
+  
+}
+
+.hero-img img {
+  width: 100%;    /* 填滿 200px 的容器 */
+  height: auto;
+  border-radius: 50%; /* 如果 circle-clip 是要圓形，建議直接用這個 */
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; /* 增加彈性縮放感 */
+}
+
+.hero-img img:hover{
+  transform: scale(1.1) rotate(4deg); /* 加上微幅旋轉，更顯俏皮 */
+  opacity: 1;
+}
+
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  color: var(--color-text-sub);
+  max-width: 600px;
+}
+
+.typing-container {
+  font-family: 'Fira Code', 'Courier New', monospace; /* 使用等寬字體效果最好 */
+  color: var(--color-text-main);
+  margin-top: 30px;
+}
+
+.typing-text {
+  display: inline-block;
+  overflow: hidden; /* 隱藏未打出來的字 */
+  white-space: nowrap; /* 強制不換行 */
+  border-right: 7px solid var(--color-accent); /* 模擬游標 */
+  width: 0;
+  margin: 5px 0;
+  
+  /* 動畫設定：持續 3 秒，20 步完成，停在最後一幀 */
+  animation: 
+    typing 3s steps(30) forwards,
+    blink 0.5s step-end infinite;
+}
+
+/* 延遲每一行的出現時間，製造由上而下的順序感 */
+.delay-1 { animation-delay: 3.5s; }
+.delay-2 { animation-delay: 7s; }
+.delay-3 { 
+  animation-delay: 10.5s;
+  color: var(--color-accent); /* 讓標籤顏色不一樣 */
+  font-weight: bold;
+}
+
+/* 打字動作：寬度從 0 到 100% */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* 游標閃爍動作 */
+@keyframes blink {
+  from, to { border-color: transparent; }
+  70% { border-color: var(--color-accent); }
+}
+
+/* 1. 主容器：確保整體置中與底線 */
+.profile-section {
+  display: flex;
+  align-items: center; 
+  gap: 30px;
+  max-width: 900px;
+  margin: 30px auto; /* 增加上下間距，更有呼吸感 */
+  padding: 30px 0;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 60px;
+}
+
+/* 2. 頭像容器：固定大小並圓形化 */
+.bio-img {
+  flex: 0 0 150px; 
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden; /* 確保圖片不超出圓圈 */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* 讓陰影深邃一點點 */
+}
+
+.bio-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 關鍵：確保不同比例的頭像都能完美填滿 */
+}
+
+/* 3. 文字資訊：撐開中間空間 */
+.bio-info {
+  flex: 1;
+}
+
+.bio-name {
+  font-size: 2.2rem; /* 稍微放大，增加氣勢 */
+  margin: 0;
+  font-family: var(--font-serif);
+  color: var(--color-text-main);
+}
+
+.bio-title {
+  font-size: 1.1rem;
+  color: var(--color-text-sub);
+  margin-top: 8px;
+  font-weight: 400;
+}
+
+/* 4. 右側裝飾圖 */
+.bio-decoration {
+  display: flex;
+  align-items: center;
+}
+
+.name-inline-img {
+  max-height: 80px; /* 稍微加大裝飾圖高度 */
+  width: auto;
+  border-radius: 8px;
+  opacity: 0.85;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; /* 增加彈性縮放感 */
+}
+
+.name-inline-img:hover {
+  transform: scale(1.1) rotate(2deg); /* 加上微幅旋轉，更顯俏皮 */
+  opacity: 1;
+}
+
+.profile-header {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* 橫幅大圖樣式 */
+.banner-box {
+    width: 100%;
+    height: 400px; /* 你可以根據圖片調整高度 */
+    overflow: hidden;
+    border-radius: 12px; /* 像截圖一樣有一點圓角 */
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 確保大圖不變形 */
+    
+}
+
+
+/* 個人資訊區塊 */
+.profile-info-container {
+    display: flex;
+    align-items: flex-end; /* 讓頭像與文字底部對齊 */
+    padding: 0 40px;
+    margin-top: -60px; /* 關鍵：負的邊距讓這區塊往上跑，壓住大圖 */
+    gap: 20px;
+}
+
+/* 頭像樣式 */
+.avatar-wrapper {
+    width: 150px;
+    height: 150px;
+    border: 5px solid var(--color-bg); /* 加一圈與背景同色的邊框，才有切割感 */
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--color-bg);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; /* 增加彈性縮放感 */
+}
+
+.avatar-wrapper:hover {
+  transform: scale(1.1) rotate(3deg); /* 加上微幅旋轉，更顯俏皮 */
+  opacity: 1;
+}
+
+.main-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 文字排版 */
+.text-content {
+    margin-bottom: -25px; /* 讓文字稍微往上一點，對齊頭像中心線 */
+}
+
+.user-id {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: #FFFFFF; /* 在深色背景下特別顯眼 */
+}
+
+.real-name {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--color-text-sub);
+    margin-left: 10px;
+}
+
+.user-tags {
+  margin-top: 8px;
+  font-family: monospace; /* 像截圖一樣帶點 Code 的感覺 */
+  letter-spacing: 1px;
+}
+
+/* Section */
+.section{
+  padding-bottom: 10px;
+  
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+}
+
+.feed-item {
+    display: flex; /* 開啟 Flexbox */
+    justify-content: space-between; /* 子元素一左一右貼近兩側 */
+    align-items: flex-start; /* 子元素頂部對齊，避免圖片被拉伸 */
+    
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--color-border);
+    width: 100%;
+}
+
+
+.feed-tag {
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.feed-title {
+  font-family: var(--font-sans); /* 作品列表標題用 Sans-serif，內容用 Serif，反其道而行更現代 */
+  font-size: 1.4rem;
+  margin: 8px 0;
+}
+
+.feed-excerpt {
+  color: var(--color-text-sub);
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.feed-date {
+  font-size: 0.8rem;
+  color: var(--color-text-sub);
+}
+
+.feed-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px; /* 極小的圓角 */
+}
+
+.info{
+  padding: calc(var(--spacing-section) * 1.5) 0;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--spacing-section);
+}
+
+.info-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 子元素一左一右貼近兩側 */
+  gap: 40px;                     /* 文字與圖片的間距 */
+  max-width: 900px;              /* 限制最大寬度，避免分得太開 */
+  margin: 0 auto;                /* 整體水平置中 */
+  padding: 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.info-name{
+  flex: 1;
+
+}
+
+.info-img{
+  flex: 0 0 200px; /* 圖片容器固定寬度 200px，不隨文字伸縮 */
+  
+}
+
+.info-img img{
+  width: 30%;    /* 填滿 200px 的容器 */
+  height: auto;
+  border-radius: 50%; /* 如果 circle-clip 是要圓形，建議直接用這個 */
+}
+
+
+
+.text-teal-600 {
+    white-space:nowrap;
+    font-weight: 600;
+    font-style: italic;
+    color: rgb(13 148 136);
+}
+
+.text-teal-600-y {
+    white-space:nowrap;
+    font-weight: 600;
+    font-style: italic;
+    color: rgb(221, 173, 14);
+}
+
+.text-teal-600-r {
+    white-space:nowrap;
+    font-weight: 600;
+    font-style: italic;
+    color: rgb(236, 44, 19);
+}
+
+.text-teal-600-g {
+    white-space:nowrap;
+    font-weight: 600;
+    font-style: italic;
+    color: #13a84c;
+}
+
+.text-teal-600-p {
+    white-space:nowrap;
+    font-weight: 600;
+    font-style: italic;
+    color: #8514d1;
+}
+
+.circle-clip {
+  width: 150px;
+  height: 150px;
+  clip-path: circle(50% at center); /* 在中心處裁切一個 50% 半徑的圓 */
+  object-fit: cover;
+}
+
+.footer {
+  color: rgb(186, 188, 190);
+  text-decoration: none;
+  text-align: center;
+  font-size:10px;
+}
+
+.linktree-container {
+  max-width: 480px; /* 限制寬度，模仿手機顯示 */
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* 頭像樣式 */
+.linktree-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  margin-bottom: 16px;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; /* 增加彈性縮放感 */
+}
+
+.linktree-avatar:hover{
+  transform: scale(1.1) rotate(3deg); /* 加上微幅旋轉，更顯俏皮 */
+  opacity: 1;
+}
+
+.linktree-id {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* 卡片設計：毛玻璃 + 圓角 */
+.featured-card {
+  background: var(--color-nav-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.featured-card:hover {
+  transform: scale(1.02);
+}
+
+/* Linktree按鈕樣式：橢圓形、細邊框 */
+.link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 2px solid var(--color-border);
+  color: var(--color-text-main);
+  padding: 16px;
+  border-radius: 50px; /* 橢圓形按鈕 */
+  margin-bottom: 12px;
+  font-weight: 500;
+  transition: all 0.9s ease;
+}
+
+.link-btn:hover {
+  background: var(--color-border);
+  border-color: var(--color-accent);
+}
