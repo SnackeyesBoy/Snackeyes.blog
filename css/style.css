@@ -141,20 +141,21 @@ body.light-theme .theme-btn::after {
 
 
 .hero-title {
+  font-family: var(--font-serif);
   font-size: 3.2rem; /* Medium 的大標題 */
   margin-bottom: 12px;
+}
+
+.hero-img img {
+  width: 70%;    /* 填滿 200px 的容器 */
+  height: auto;
+  border-radius: 50%; /* 如果 circle-clip 是要圓形，建議直接用這個 */
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; /* 增加彈性縮放感 */
 }
 
 .hero-img {
   flex: 0 0 200px; /* 圖片容器固定寬度 200px，不隨文字伸縮 */
   
-}
-
-.hero-img img {
-  width: 100%;    /* 填滿 200px 的容器 */
-  height: auto;
-  border-radius: 50%; /* 如果 circle-clip 是要圓形，建議直接用這個 */
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; /* 增加彈性縮放感 */
 }
 
 .hero-img img:hover{
@@ -172,7 +173,7 @@ body.light-theme .theme-btn::after {
 .typing-container {
   font-family: 'Fira Code', 'Courier New', monospace; /* 使用等寬字體效果最好 */
   color: var(--color-text-main);
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 
 .typing-text {
@@ -556,4 +557,153 @@ body.light-theme .theme-btn::after {
 .link-btn:hover {
   background: var(--color-border);
   border-color: var(--color-accent);
+}
+
+/* mobile_web_view */
+.menu-toggle {
+    display: none; /* 桌機隱藏漢堡 */
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background: var(--color-text-main);
+}
+
+/* --- 📱 手機版響應式 (Media Query) --- */
+
+.mobile-only {
+  display: none !important; /* 隱藏手機版文字 */
+}
+
+@media (max-width: 768px) {
+  .hero{
+    padding: 30px 0;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--spacing-section);
+  }
+
+  .hero-container {
+    /* 1. 關鍵修正：切換為垂直排列 (Column) */
+    flex-direction: column-reverse; /* 關鍵：逆向直排，把圖片推到最上方 */
+    
+    /* 2. 關鍵修正：置中對齊 */
+    align-items: center;    
+    text-align: center;     /* 文字也要置中 */
+    gap: 30px;             /* 縮小間距 */
+    padding: 20px 10px;
+  }
+
+  .hero-content {
+    order: 2; /* 手機版文字在下方 */
+  }
+
+  .hero-image-wrapper {
+    order: 1; /* 手機版圖片在上方 */
+    /* 縮小手機版頭像，看起來更精緻 */
+    width: 150px; 
+    height: 150px;
+  }
+
+  /* 調整手機版文字樣式 (配合置中) */
+  .welcome-title {
+    font-size: 2.2rem;     /* 縮小字體 */
+    justify-content: center; /* 讓 Tag 置中 */
+  }
+
+  .typing-container {
+    /* 確保打字文字置中且不要超出螢幕 */
+    margin: 20px auto;
+    width: 90%;
+  }
+
+  .desktop-only {
+    display: none !important; /* 隱藏桌機版文字 */
+  }
+
+  .mobile-only {
+    display: inline-block !important; /* 顯示手機版文字 */
+    width: 0; /* 初始寬度為 0 */
+  }
+
+  /* 2. 關鍵：針對手機版短文字重新設定「打字動畫」 */
+  .typing-text.mobile-only {
+    /* 保留 white-space: nowrap (強制不換行)，這是打字動畫的根基 */
+    white-space: nowrap !important;
+    
+    /* 針對新的短文字長度（約 33 個字元），重新計算打字步數 (steps) */
+    /* 計算方式：短文字字元數 + 游標步數 */
+    animation: typing 2.5s steps(33) forwards, blink 0.5s step-end infinite;
+  }
+
+  /* 針對 delay-4 重新設定時間軸 */
+  .delay-2 { animation-delay: 7s !important; } /* (延續 delay-3 的時間) */
+
+  .menu-toggle {
+    display: block; /* 手機顯示漢堡 */
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 44px;          /* 緊貼 Navbar 下方 */
+    left: 0;            /* 水平位置固定在左側 0 */
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    
+    /* --- ✨ 由上往下展開的關鍵 --- */
+    opacity: 0;         /* 預設透明 */
+    visibility: hidden; /* 預設不可見，避免擋住下方的點擊 */
+    transform: translateY(-20px); /* 預設往上縮 20px */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* 順滑的下拉感 */
+    
+    /* 毛玻璃與背景 */
+    background-color: var(--color-nav-bg);
+    backdrop-filter: blur(100px) saturate(10%);
+    -webkit-backdrop-filter: blur(100px) saturate(10%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+  /* --- 下拉並顯現 --- */
+  .nav-links.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* 回到原位，達成下拉效果 */
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center; /* 讓文字置中，下拉式選單通常置中比較好看 */
+    margin-bottom: 20px 0;
+  }
+
+  .nav-links li a {
+    font-size: 2rem;
+    color: #FFFFFF !important;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    
+  }
+  .nav-links a{
+    padding: 7px 0;
+    transform: translateY(5px);
+    transition: all 1s cubic-bezier(0.2, 0.6, 0.2, 1); /* 高級感的貝茲曲線 */
+  }
+    
+
+    /* 漢堡轉叉叉動畫 (選配) */
+    .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }

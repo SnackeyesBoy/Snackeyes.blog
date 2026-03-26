@@ -1,4 +1,30 @@
 // theme.js
+//mobile & pc
+// theme.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menu = document.querySelector('#mobile-menu');
+    const menuLinks = document.querySelector('.nav-links');
+
+    // 點擊漢堡圖示
+    menu.addEventListener('click', () => {
+        menu.classList.toggle('is-active');
+        menuLinks.classList.toggle('active');
+
+        /* ❌ 刪除原本的 if (classList.contains('active')) { body.style.overflow = 'hidden' }
+           這樣點開選單時，背景頁面依然可以自由滑動。
+        */
+    });
+
+    // 點擊項目後關閉
+    document.querySelectorAll('.nav-links a').forEach(n => {
+        n.addEventListener('click', () => {
+            menu.classList.remove('is-active');
+            menuLinks.classList.remove('active');
+            // 這裡也不需要恢復 overflow，因為我們沒鎖定它
+        });
+    });
+});
 // 動化觸發邏輯
 const observerOptions = {
     threshold: 0.3 // 當元素出現 10% 時觸發
