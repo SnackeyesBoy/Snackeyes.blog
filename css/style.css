@@ -339,6 +339,7 @@ body.light-theme .theme-btn::after {
 }
 
 .user-id {
+    white-space: nowrap;
     font-size: 2.5rem;
     font-weight: 700;
     margin: 0;
@@ -602,7 +603,7 @@ body.light-theme .theme-btn::after {
     order: 2; /* 手機版文字在下方 */
   }
 
-  .hero-image-wrapper {
+  .hero-image {
     order: 1; /* 手機版圖片在上方 */
     /* 縮小手機版頭像，看起來更精緻 */
     width: 150px; 
@@ -642,6 +643,35 @@ body.light-theme .theme-btn::after {
 
   /* 針對 delay-4 重新設定時間軸 */
   .delay-2 { animation-delay: 7s !important; } /* (延續 delay-3 的時間) */
+
+  .profile-info-container{
+    display: flex;
+    flex-direction: column; /* 手機版垂直排列 */
+    align-items: center;    /* 水平置中 */
+    text-align: center;     /* 文字置中 */
+    
+    /* --- ✨ 向上移動的關鍵設定 --- */
+    position: relative;     /* 1. 開啟相對定位，為了設定 z-index */
+    margin-top: -80px;      /* 2. 關鍵：使用負邊距讓整個區塊上移，壓在大圖上 */
+                            /* 這個數值（-80px）可以根據你想要的重疊程度調整 */
+    z-index: 10;            /* 3. 關鍵：確保重疊時，頭像在藍色大圖的「上方」 */
+    
+
+    padding-top: 10px;
+  }
+
+  .bio-info {
+    width: 100%;
+    padding: 0 20px;        /* 左右留白 */
+    color: var(--color-text-sub); /* 描述使用次要顏色 */
+  }
+
+  .bio-name {
+    color: #FFFFFF;         /* 名字使用純白高對比色 */
+    font-size: 2rem;
+    font-weight: 700;
+    justify-content: center; /* @圖示置中 */
+  }
 
   .menu-toggle {
     display: block; /* 手機顯示漢堡 */
