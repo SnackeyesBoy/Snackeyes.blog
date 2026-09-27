@@ -1,1 +1,47 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tags on</title><link>https://snackeyesboy.github.io/Snackeyes.blog/tags/</link><description>Recent content in Tags on</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 22 Aug 2026 03:22:00 +0000</lastBuildDate><atom:link href="https://snackeyesboy.github.io/Snackeyes.blog/tags/index.xml" rel="self" type="application/rss+xml"/><item><title>Japan</title><link>https://snackeyesboy.github.io/Snackeyes.blog/tags/japan/</link><pubDate>Sat, 22 Aug 2026 03:22:00 +0000</pubDate><guid>https://snackeyesboy.github.io/Snackeyes.blog/tags/japan/</guid><description/></item><item><title>秋葉原</title><link>https://snackeyesboy.github.io/Snackeyes.blog/tags/%E7%A7%8B%E8%91%89%E5%8E%9F/</link><pubDate>Wed, 20 Aug 2025 03:14:00 +0000</pubDate><guid>https://snackeyesboy.github.io/Snackeyes.blog/tags/%E7%A7%8B%E8%91%89%E5%8E%9F/</guid><description/></item><item><title>Kamakura</title><link>https://snackeyesboy.github.io/Snackeyes.blog/tags/kamakura/</link><pubDate>Tue, 19 Aug 2025 02:22:00 +0000</pubDate><guid>https://snackeyesboy.github.io/Snackeyes.blog/tags/kamakura/</guid><description/></item><item><title>Film</title><link>https://snackeyesboy.github.io/Snackeyes.blog/tags/film/</link><pubDate>Mon, 18 Aug 2025 02:06:00 +0000</pubDate><guid>https://snackeyesboy.github.io/Snackeyes.blog/tags/film/</guid><description/></item><item><title>Yokohama</title><link>https://snackeyesboy.github.io/Snackeyes.blog/tags/yokohama/</link><pubDate>Mon, 18 Aug 2025 02:06:00 +0000</pubDate><guid>https://snackeyesboy.github.io/Snackeyes.blog/tags/yokohama/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on </title>
+    <link>http://localhost:61173/Snackeyes.blog/tags/</link>
+    <description>Recent content in Tags on </description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 22 Aug 2026 03:22:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:61173/Snackeyes.blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Japan</title>
+      <link>http://localhost:61173/Snackeyes.blog/tags/japan/</link>
+      <pubDate>Sat, 22 Aug 2026 03:22:00 +0000</pubDate>
+      <guid>http://localhost:61173/Snackeyes.blog/tags/japan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>秋葉原</title>
+      <link>http://localhost:61173/Snackeyes.blog/tags/%E7%A7%8B%E8%91%89%E5%8E%9F/</link>
+      <pubDate>Wed, 20 Aug 2025 03:14:00 +0000</pubDate>
+      <guid>http://localhost:61173/Snackeyes.blog/tags/%E7%A7%8B%E8%91%89%E5%8E%9F/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kamakura</title>
+      <link>http://localhost:61173/Snackeyes.blog/tags/kamakura/</link>
+      <pubDate>Tue, 19 Aug 2025 02:22:00 +0000</pubDate>
+      <guid>http://localhost:61173/Snackeyes.blog/tags/kamakura/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Film</title>
+      <link>http://localhost:61173/Snackeyes.blog/tags/film/</link>
+      <pubDate>Mon, 18 Aug 2025 02:06:00 +0000</pubDate>
+      <guid>http://localhost:61173/Snackeyes.blog/tags/film/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Yokohama</title>
+      <link>http://localhost:61173/Snackeyes.blog/tags/yokohama/</link>
+      <pubDate>Mon, 18 Aug 2025 02:06:00 +0000</pubDate>
+      <guid>http://localhost:61173/Snackeyes.blog/tags/yokohama/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

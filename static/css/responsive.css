@@ -59,10 +59,10 @@
   .journal-heading { flex-direction: column; align-items: flex-start; gap: 14px; }
   .portfolio-note { min-height: auto; }
   .contact-page { padding: 72px 0 90px; }
-  .contact-title { margin: 22px 0 38px; font-size: clamp(2.75rem, 13vw, 4.25rem); }
+  .contact-title { margin: 22px 0 38px; font-size: clamp(2.3rem, 5vw, 4rem); }
   .contact-intro { margin-bottom: 42px; font-size: 1rem; }
   .contact-intro span { font-size: .875rem; }
-  .contact-email { margin-bottom: 48px; font-size: clamp(1.6rem, 7.5vw, 2.25rem); }
+  .contact-email { margin-bottom: 48px; font-size: clamp(1.5rem, 1vw, 2rem); }
   .contact-links { width: 100%; }
   .profile-header { width: calc(100% - 40px); }
   .banner-box { height: 230px; }
