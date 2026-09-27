@@ -1,0 +1,119 @@
+/* 初始隱藏狀態 */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s cubic-bezier(0.2, 0.6, 0.2, 1); /* 高級感的貝茲曲線 */
+}
+
+/* 啟動後的狀態 */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.typing-text {
+  display: inline-block;
+  overflow: hidden; /* 隱藏未打出來的字 */
+  white-space: nowrap; /* 強制不換行 */
+  border-right: 7px solid var(--color-accent); /* 模擬游標 */
+  width: 0;
+  margin: 5px 0;
+  
+  /* 動畫設定：持續 3 秒，20 步完成，停在最後一幀 */
+  animation: 
+    typing 3s steps(30) forwards,
+    blink 0.5s step-end infinite;
+}
+
+/* 延遲每一行的出現時間，製造由上而下的順序感 */
+.delay-1 { animation-delay: 3.5s; }
+.delay-2 { animation-delay: 7s; }
+.delay-3 { 
+  animation-delay: 10.5s;
+  color: var(--color-accent); /* 讓標籤顏色不一樣 */
+  font-weight: bold;
+}
+
+/* 打字動作：寬度從 0 到 100% */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* 游標閃爍動作 */
+@keyframes blink {
+  from, to { border-color: transparent; }
+  70% { border-color: var(--color-accent); }
+}
+
+.scramble-text {
+    font-family: 'Fira Code', monospace;
+    color: var(--color-accent); /* 使用你設定的強調色 */
+    text-shadow: 0 0 8px rgba(0, 204, 153, 0.5); /* 輕微發光 */
+    display: inline-block;
+}
+
+/* Initial route transition: the loader exits cleanly once the page is ready. */
+#page-loader {
+  position: fixed;
+  z-index: 10001;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 18px;
+  background: var(--color-bg);
+  color: var(--color-text-strong);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .5s ease, visibility .5s step-end;
+}
+
+.page-loader-mark {
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(1.1rem, 3vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: .03em;
+}
+
+.page-loader-mark span { color: var(--color-accent); }
+.page-loader-track { width: min(210px, 50vw); height: 2px; overflow: hidden; background: var(--color-border); }
+.page-loader-track i { display: block; width: 45%; height: 100%; background: var(--color-accent); animation: loader-progress .75s cubic-bezier(.65, 0, .35, 1) infinite; }
+
+body.page-ready #page-loader { opacity: 0; visibility: hidden; }
+
+.page-scramble-header {
+  width: min(900px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 48px 0 24px;
+}
+
+.page-scramble-header h1 {
+  margin: 0;
+  color: var(--color-text-strong);
+  font-family: var(--font-mono), monospace;
+  letter-spacing: .035em;
+  text-shadow: 0 0 17px color-mix(in srgb, var(--color-accent) 28%, transparent);
+}
+
+.works-page-title { width: 100%; padding: 0 0 20px; }
+.contact-page-title { width: 100%; padding: 0 0 28px; }
+
+@keyframes loader-progress {
+  from { transform: translateX(-115%); }
+  to { transform: translateX(260%); }
+}
+
+
+/* Elements are observed by JavaScript and revealed as they enter the viewport. */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .65s ease var(--reveal-delay, 0ms), transform .65s cubic-bezier(.2, .65, .25, 1) var(--reveal-delay, 0ms);
+}
+
+.scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  #page-loader { display: none; }
+  .scroll-reveal { opacity: 1; transform: none; transition: none; }
+  .page-loader-track i { animation: none; }
+}

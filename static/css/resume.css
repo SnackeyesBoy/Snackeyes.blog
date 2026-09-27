@@ -1,0 +1,11 @@
+.resume-preview-page { width: min(1000px, calc(100% - 40px)); margin: 0 auto 90px; }
+.resume-preview-title { width: 100%; padding-bottom: 18px; }
+.resume-preview-intro { margin: 0 0 22px; color: var(--color-text-soft); }
+.resume-preview-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.resume-preview-actions a { padding: 11px 15px; border: 1px solid var(--color-divider); background: color-mix(in srgb, var(--color-surface) 70%, transparent); color: var(--color-text-strong); font-family: var(--font-mono), monospace; font-size: .84rem; transition: transform .2s ease, border-color .2s ease; }
+.resume-preview-actions a:hover { transform: translateY(-3px); border-color: var(--color-accent); color: var(--color-accent); }
+.resume-pdf-frame { overflow: hidden; border: 1px solid var(--color-divider); background: color-mix(in srgb, var(--color-surface) 68%, transparent); backdrop-filter: blur(16px) saturate(125%); -webkit-backdrop-filter: blur(16px) saturate(125%); }
+.resume-pdf-frame iframe { display: block; width: 100%; height: min(82vh, 900px); border: 0; background: #fff; }
+.resume-pdf-frame p { margin: 0; padding: 16px; color: var(--color-text-soft); }
+.resume-pdf-frame p a { color: var(--color-accent); text-decoration: underline; }
+@media (max-width: 768px) { .resume-preview-page { width: calc(100% - 40px); margin-bottom: 64px; } .resume-pdf-frame iframe { height: 72vh; } }

@@ -1,0 +1,20 @@
+{
+  "name": "Yu-Xiang Lin / Snackeyes",
+  "email": "smax920410@gmail.com",
+  "zh": {
+    "title": "個人履歷",
+    "summary": "國立中正大學電機工程研究所學生，關注生醫影像與訊號處理、人工智慧及網頁開發。",
+    "education": [["國立中正大學", "電機工程所 信號與智慧計算組", "2025 - Now"], ["國立雲林科技大學", "電機工程系", "2022 - 2025"], ["國立雲林科技大學", "創意生活設計系（轉系）", "2021 - 2022"], ["國立中興大學附屬高級中學", "普通科", "2018 - 2021"]],
+    "work": [["DSP 523 實驗室", "總管", "2026 - Now"], ["高齡健康促進與智慧醫療", "助教", "2026"], ["數位訊號處理導論", "助教", "2026"], ["臺大斗六醫院眼動專案", "實驗室合作計畫研究成員", "2025 - Now"], ["雲科大宿舍網路管理小組", "第 23 - 26 屆組員、系統組組員、文書組組長、組長與顧問", "2021 - 2025"]],
+    "experience": [["第三屆勤誠新代盃", "佳作", "2024"], ["第十六屆人工智能數據化學智權競賽", "銀牌", "2023"], ["Google Devfest 彰化、COSCUP SITCON 議程軌", "工作人員", "2023"], ["GDSC 雲科", "Core-Team 核心幹部", "2022"]],
+    "skills": "生醫影像與訊號處理、人工智慧、網頁前端、後端維護、Python、C、C#、HTML、CSS、JavaScript、Kotlin"
+  },
+  "en": {
+    "title": "Resume",
+    "summary": "Master's student in Electrical Engineering at National Chung Cheng University, focused on biomedical imaging and signal processing, artificial intelligence, and web development.",
+    "education": [["National Chung Cheng University", "M.S. in Electrical Engineering, Signal and Intelligent Computing Group", "2025 - Present"], ["National Yunlin University of Science and Technology", "B.S. in Electrical Engineering", "2022 - 2025"], ["National Yunlin University of Science and Technology", "Department of Creative Design (transferred)", "2021 - 2022"], ["National Chung Hsing University Affiliated Senior High School", "General Education", "2018 - 2021"]],
+    "work": [["DSP 523 Laboratory", "Laboratory Manager", "2026 - Present"], ["Healthy Aging Promotion and Smart Healthcare", "Teaching Assistant", "2026"], ["Introduction to Digital Signal Processing", "Teaching Assistant", "2026"], ["NTU Yunlin Hospital Eye-tracking Project", "Research Project Member", "2025 - Present"], ["NYUST Dormitory Network Management Team", "Member, Systems Team Member, Documentation Lead, Team Lead, and Advisor", "2021 - 2025"]],
+    "experience": [["3rd Chenbro Creative Design Competition", "Honorable Mention", "2024"], ["16th AI Data Chemistry Intellectual Property Competition", "Silver Medal", "2023"], ["Google Devfest Changhua and COSCUP/SITCON Program Track", "Staff Member", "2023"], ["GDSC YunTech", "Core Team Member", "2022"]],
+    "skills": "Biomedical imaging and signal processing, artificial intelligence, frontend development, backend maintenance, Python, C, C#, HTML, CSS, JavaScript, Kotlin"
+  }
+}

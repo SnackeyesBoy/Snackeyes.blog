@@ -1,0 +1,19 @@
+/* One visibly translucent glass surface for every article/card treatment. */
+.journal-card,
+.post-card,
+.featured-post,
+.feed-item,
+.blog-post-item,
+.resume-download-card,
+.post-wrapper {
+  background: color-mix(in srgb, var(--color-surface) 48%, transparent);
+  border-color: color-mix(in srgb, var(--color-divider) 78%, transparent);
+  backdrop-filter: blur(18px) saturate(135%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+}
+
+.journal-card-content,
+.post-card-content,
+.featured-post-content {
+  background: color-mix(in srgb, var(--color-surface) 34%, transparent);
+}

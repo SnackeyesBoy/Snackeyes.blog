@@ -20,7 +20,7 @@
                        `=---=' 
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                佛祖保佑         永無BUG -->
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,13 +28,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Serif+TC:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ "css/variables.css" | absURL }}">
+    <!-- <link rel="stylesheet" href="{{ "css/variables.css" | absURL }}">
     <link rel="stylesheet" href="{{ "css/base.css" | absURL }}">
-    <link rel="stylesheet" href="{{ "css/style.css" | absURL }}"> 
+    <link rel="stylesheet" href="{{ "css/style.css" | absURL }}">  -->
+    <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
     
 </head>
 
-<body>
+<body class="{{ if .IsHome }}is-home{{ end }}">
+    {{ if .IsHome }}
+    <div id="page-loader" aria-hidden="true">
+        <div class="page-loader-mark"><span>@</span> Snackeyes.Blog</div>
+        <div class="page-loader-track"><i></i></div>
+    </div>
+    {{ end }}
     <nav class="navbar">
         <div class="nav-container">
             <a href="{{ .Site.BaseURL | absURL }}" class="nav-logo"><span class="text-teal-600-y">@</span> Snackeyes.Blog</a>
@@ -47,11 +54,12 @@
                 </div>
 
                 <ul class="nav-links">
-                    <a href="{{ "about/" | absURL }}">關於</a>
-                    <a href="{{ "works/" | absURL }}">作品列</a>
-                    <a href="{{ "blog/" | absURL }}">部落格</a>
+                    <a href="{{ "about/" | absURL }}" data-i18n="nav.about">關於</a>
+                    <a href="{{ "works/" | absURL }}" data-i18n="nav.works">作品列</a>
+                    <a href="{{ "blog/" | absURL }}" data-i18n="nav.blog">Blog</a>
                     <a href="https://linktr.ee/maximilian_snackeyes">LinkTree</a>
-                    <a href="{{ "contact/" | absURL }}">聯絡我</a>
+                    <a href="{{ "contact/" | absURL }}" data-i18n="nav.contact">聯絡我</a>
+                    <button id="language-toggle" class="language-btn" type="button" aria-label="Switch language">EN</button>
                 </ul>
 
                 <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">

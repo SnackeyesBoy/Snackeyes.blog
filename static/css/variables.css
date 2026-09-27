@@ -1,51 +1,59 @@
-/* variables.css */
 :root {
-  /* --- 深色模式 (預設) --- */
   --color-bg: #121212;
-  --color-nav-bg: rgba(18, 18, 18, 0.8); /* 深色毛玻璃背景 */
-  --color-text-main: rgba(255, 255, 255, 0.84);
-  --color-text-sub: rgba(255, 255, 255, 0.6);
-  --color-accent: #C68B59;          /* 復古焦糖橘 */
-  --color-border: rgba(255, 255, 255, 0.1);
-  --color-logo: #FFFFFF;
-  
-  /* 字體與佈局 */
+  --color-nav-bg: rgba(18, 18, 18, .8);
+  --color-text-main: rgba(255, 255, 255, .84);
+  --color-text-sub: rgba(255, 255, 255, .6);
+  --color-accent: #d9f35c;
+  --color-border: rgba(255, 255, 255, .1);
+  --color-logo: #fff;
   --font-serif: "Noto Serif TC", serif;
   --font-sans: "Inter", system-ui, sans-serif;
-  --max-width-content: 720px;
+  --max-width-content: 1320px;
   --spacing-section: 80px;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 3rem;
+  --text-display: clamp(3rem, 6vw, 6.5rem);
+  --color-card-bg: #1b1c19;
+  --color-card-hover-border: rgba(217, 243, 92, 0.45);
+  --color-card-shadow: rgba(0, 0, 0, 0.28);
+  --color-text-muted: #b8b8b2;
+  --color-surface: #1b1c19;
+  --color-surface-raised: #232521;
+  --color-text-strong: #f5f3ec;
+  --color-text-soft: #b8b8b2;
+  --color-divider: #383a34;
+  --background-contours: url("../graphics/contours-dark.svg?v=minimal-3");
 }
-
 body.light-theme {
-  /* --- 白色模式 --- */
-  --color-bg: #ffffff;
-  --color-nav-bg: rgba(255, 255, 255, 0.7); /* 淺色毛玻璃背景 */
-  --color-text-main: rgba(0, 0, 0, 0.84);
-  --color-text-sub: rgba(0, 0, 0, 0.54);
-  --color-accent: #1A8917;          /* 切換為 Medium 綠 (或保留橘色) */
-  --color-border: rgba(0, 0, 0, 0.1);
-  --color-logo: #000000;
+  --color-bg: #fff;
+  --color-nav-bg: rgba(255, 255, 255, .8);
+  --color-text-main: rgba(0, 0, 0, .84);
+  --color-text-sub: rgba(0, 0, 0, .58);
+  --color-accent: #486200;
+  --color-border: rgba(0, 0, 0, .12);
+  --color-logo: #000;
+  --color-card-bg: #f4f4ee;
+  --color-card-hover-border: rgba(72, 98, 0, 0.45);
+  --color-card-shadow: rgba(0, 0, 0, 0.12);
+  --color-text-muted: #62645d;
+  --color-surface: #f4f4ee;
+  --color-surface-raised: #e9e9e1;
+  --color-text-strong: #171815;
+  --color-text-soft: #62645d;
+  --color-divider: #c9c9c0;
+  --background-contours: url("../graphics/contours-light.svg?v=minimal-3");
 }
 
-/* 基礎標籤樣式連動變數 */
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text-main);
-  transition: background-color 0.4s ease, color 0.4s ease;
-  margin: 0;
+  font-size: var(--text-base);
+  line-height: 1.7;
 }
 
-h1, h2, h3, .user-id {
-  color: var(--color-text-main) !important;
+h1, h2, h3, p {
+  margin-top: 0;
 }
-
-a {
-  color: var(--color-accent);
-  text-decoration: none;
-  transition: opacity 0.2s, color 0.4s ease;
-}
-
-a:hover {
-  opacity: 0.8;
-}
-

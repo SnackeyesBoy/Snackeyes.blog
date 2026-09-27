@@ -1,102 +1,74 @@
-{{ define "main" }}        
-        <!-- <h2><span class="text-teal-600-r" style="font-size:30px">#</span> Wellcome To Snackeyes Profile</h2> -->
-        <h1 class="scramble-text" data-value="# Wellcome To Snackeyes Profile">_</h1>
-        
-        <!-- <div class="profile-section"> 
-            <div class="bio-img">
-                <img src="img/S__37167106.jpg" alt="Profile" class="circle-clip">
-            </div>
-            
-            <div class="bio-info">
-                <h1 class="bio-name">@Snackeyes</h1>
-                <p class="bio-title">Yu - Xiang, Lin / Maximilian</p>
-                <p>“ 人生單程票，那必須是吃到飽 ”</p>
-            </div>
+{{ define "main" }}
+<header class="page-scramble-header"><h1 data-scramble="Profile" aria-label="Profile"># Profile</h1></header>
+<div class="profile-header">
+  <div class="banner-box">
+    <img src="/img/550774793_18320440537209823_7015142223140905602_n.jpg" class="banner-img" alt="Snackeyes 的攝影作品">
+  </div>
+  <div class="profile-info-container">
+    <div class="avatar-wrapper"><img src="/img/S__37167106.jpg" alt="Yu-Xiang Lin 的個人頭像" class="main-avatar"></div>
+    <div class="text-content">
+      <h1 class="user-id">@ Snackeyes <span class="real-name">Yu-Xiang, Lin</span></h1>
+      <p class="user-tags">EE Master Student · Photographer</p>
+      <p class="typing-text">「人生是單程票，那必須吃到飽。」</p>
+    </div>
+  </div>
+</div>
 
-            <div class="bio-decoration">
-                <img src="img/2025_08_19_02_17_A7C04754.JPG" class="name-inline-img" alt="Decoration">
-            </div>
+<div class="about-content">
+  <p class="about-updated">Last updated · 2026.05.26</p>
+  {{ with .Content }}<section class="about-introduction">{{ . }}</section>{{ end }}
 
-        </div> -->
+  <section class="resume-downloads" aria-labelledby="resume-download-title">
+    <div class="resume-heading"><p class="eyebrow">// RESUME</p><h2 id="resume-download-title" data-i18n="resume.title">履歷下載</h2></div>
+    <div class="resume-download-grid">
+      <a class="resume-download-card" href="{{ "downloads/yu-xiang-lin-resume-zh.pdf" | relURL }}" target="_blank" rel="noopener"><span><strong>RESUME</strong><small>在新分頁預覽或下載中文履歷</small></span><b>↗</b></a>
+    </div>
+  </section>
 
-        <div class="profile-header">
-            <div class="banner-box">
-                <img src="/img/550774793_18320440537209823_7015142223140905602_n.jpg" class="banner-img" alt="Banner">
-            </div>
+  <section class="resume-section" aria-labelledby="education-title">
+    <div class="resume-heading"><p class="eyebrow">// BIO</p><h2 id="education-title">學歷</h2></div>
+    <div class="resume-list">
+      <article class="resume-row"><div><h3>國立中正大學</h3><p>電機工程所 信號與智慧計算組</p></div><time datetime="2025">2025 - Now</time></article>
+      <article class="resume-row"><div><h3>國立雲林科技大學</h3><p>電機工程系</p></div><time datetime="2022/2025">2022 - 2025</time></article>
+      <article class="resume-row"><div><h3>國立雲林科技大學</h3><p>創意生活設計系 轉系</p></div><time datetime="2021/2022">2021 - 2022</time></article>
+      <article class="resume-row"><div><h3>國立中興大學附屬高級中學</h3><p>普通科</p></div><time datetime="2018/2021">2018 - 2021</time></article>
+    </div>
+  </section>
 
-            <div class="profile-info-container">
-                <div class="avatar-wrapper">
-                    <img src="/img/S__37167106.jpg" alt="Profile" class="main-avatar">
-                </div> 
-                <div class="text-content">
-                    <h1 class="user-id">@ Snackeyes<span class="real-name">Yu-Xiang , Lin </span></h1>
-                    <p class="user-tags">EE Master Student | Photographer</p>
-                    <p class="typing-text">“ 人生是單程票，那必須吃到飽 ”</p>
-                </div>
-            </div>
-        </div>
-        
-        <time class="feed-date">Last Updated 2026.05.26</time>
+  <section class="resume-section" aria-labelledby="experience-title">
+    <div class="resume-heading"><p class="eyebrow">// WORK</p><h2 id="experience-title">工作</h2></div>
+    <div class="resume-list">
+      <article class="resume-row"><div><h3>總管</h3><p>DSP 523 實驗室</p></div><time datetime="2026">2026 - Now</time></article>
+      <article class="resume-row"><div><h3>助教</h3><p>高齡健康促進與智慧醫療</p></div><time datetime="2026">2026</time></article>
+      <article class="resume-row"><div><h3>助教</h3><p>數位訊號處理導論</p></div><time datetime="2026">2026</time></article>
+      <article class="resume-row"><div><h3>計畫研究成員</h3><p>實驗室合作臺大斗六醫院眼動專案</p></div><time datetime="2025">2025-now</time></article>
+      <article class="resume-row"><div><h3>系辦工讀生</h3><p>雲科 電機工程系</p></div><time datetime="2024">2024-2025</time></article>
+      <article class="resume-row"><div><h3>雲科大宿舍網路管理小組</h3><p>社團＆工作 · 26th 顧問 · 25th 組長 · 24th 文書組組長／系統組組員 · 23rd 組員</p></div><time datetime="2021/2025">2021 - 2025</time></article>
+    </div>
+  </section>
 
-        <section class="section">
-            {{ .Content }}
-        </section>
+  <section class="resume-section" aria-labelledby="special-title">
+    <div class="resume-heading"><p class="eyebrow">// EXPERIENCE</p><h2 id="special-title">特殊經歷</h2></div>
+    <div class="resume-list"><article class="resume-row"><div><h3>第三屆勤誠新代盃</h3><p>競賽 / 佳作</p></div><time datetime="2024">2024</time></article></div>
+    <div class="resume-list"><article class="resume-row"><div><h3>第十六屆人工智能數據化學智權競賽</h3><p>競賽 / 銀牌</p></div><time datetime="2023">2023</time></article></div>
+    <div class="resume-list"><article class="resume-row"><div><h3>Google Devfest 彰化</h3><p>工作人員</p></div><time datetime="2023">2023</time></article></div>
+    <div class="resume-list"><article class="resume-row"><div><h3>COSCUP SITCON 議程軌</h3><p>工作人員</p></div><time datetime="2023">2023</time></article></div>
+    <div class="resume-list"><article class="resume-row"><div><h3>GDSC 雲科</h3><p>Core-Team核心幹部</p></div><time datetime="2022">2022</time></article></div>
+  </section>
 
-        <section class="section">
-            <h3>🚩 學歷 <span class="feed-date">/ BIO</span></h3>
-            <p>國立中正大學 電機工程所 信號與智慧計算組 <span class="feed-date">2025 - Now</span></p>
-            <p>國立雲林科技大學 電機工程系 <span class="feed-date">2022 - 2025</span></p>
-            <p>國立雲林科技大學 創意生活設計系 <span class="feed-date">2021 - 2022 轉系</span></p>
-            <p>國立中興大學附屬高級中學 <span class="feed-date">2018 - 2021</span></p>
-        </section>
-        
-        <section class="section">
-            <h3>🚩 特殊經歷 <span class="feed-date">/ EXPERIENCE</span></h3>
-            <p>實驗室合作臺大斗六醫院眼動計畫研究成員<span class="feed-date"> 專案 / 2025 - Now</span></p>
-            <p>第三屆勤誠新代盃 佳作<span class="feed-date"> 競賽 / 2024</span></p>
-            <p>雲科大宿舍網路管理小組<span class="feed-date"> 社團＆工作 / 2021 - 2025</span></p>
-            <p>26th 顧問</p>
-            <p>25th 組長</p>
-            <p>24th 文書組組長 / 系統組組員</p>
-            <p>23rd 組員</p>
+  <section class="resume-section" aria-labelledby="research-title">
+    <div class="resume-heading"><p class="eyebrow">// RESEARCH</p><h2 id="research-title">研究領域</h2></div>
+    <div class="profile-tags" aria-label="研究領域"><span>生醫影像與訊號處理</span><span>人工智慧</span><span>網頁前端</span><span>後端維護</span></div>
+  </section>
 
-        </section>
-
-        <!-- <h3>程式語言</h3>
-        <p>Python</p>
-        <p>C</p>
-        <p>C#</p>
-        <p>HTML</p>
-        <p></p> -->
-        <section class="section">
-            <h3>🚩 研究領域 <span class="feed-date">/ RESEARCH</span></h3>
-            <p>生醫影像與訊號處理</p>
-            <p>人工智慧</p>
-            <p>網頁前端</p>
-            <p>後端維護</p>
-        </section>
-        <section class="section">
-            <h3>🚩 開發技能 <span class="feed-date">/ SKILLS</span></h3>
-            <p>> OS</p>
-            <p align="left">
-            <a href="https://skillicons.dev">
-                <img src="https://skillicons.dev/icons?i=apple,windows,linux,ubuntu,kali" />
-            </a>
-            <p>> CODEING</p>
-            <p align="left">
-            <a href="https://skillicons.dev">
-                <img src="https://skillicons.dev/icons?i=c,cs,python,html,css,javascript,kotlin" />
-            </a>
-            <p>> DEVELOP</p>
-            <p align="left">
-            <a href="https://skillicons.dev">
-                <img src="https://skillicons.dev/icons?i=github,git,anaconda,opencv,arduino,vscode,visualstudio" />
-            </a>
-            <p>> OTHER</p>
-            <p align="left">
-            <a href="https://skillicons.dev">
-                <img src="https://skillicons.dev/icons?i=ai,ps,autocad,sketchup,rhino" />
-            </a>
-            </p>
-        </section>
+  <section class="resume-section skills-section" aria-labelledby="skills-title">
+    <div class="resume-heading"><p class="eyebrow">// SKILLS</p><h2 id="skills-title">開發技能</h2></div>
+    <div class="skill-groups">
+      <div class="skill-group"><h3>&gt; OS</h3><div class="skill-icon-row"><img src="https://skillicons.dev/icons?i=apple&theme=dark" alt="macOS" width="56" height="56" loading="lazy"><img src="https://skillicons.dev/icons?i=windows&theme=dark" alt="Windows" width="56" height="56" loading="lazy"><img src="https://skillicons.dev/icons?i=linux&theme=dark" alt="Linux" width="56" height="56" loading="lazy"><img src="https://skillicons.dev/icons?i=ubuntu&theme=dark" alt="Ubuntu" width="56" height="56" loading="lazy"><img src="https://skillicons.dev/icons?i=kali&theme=dark" alt="Kali Linux" width="56" height="56" loading="lazy"></div></div>
+      <div class="skill-group"><h3>&gt; CODING</h3><div class="skill-icon-row"><img src="https://skillicons.dev/icons?i=c&theme=dark" alt="C" width="56" height="56" loading="lazy"><img src="https://skillicons.dev/icons?i=cs&theme=dark" alt="C Sharp" width="56" height="56" loading="lazy"><img src="https://skillicons.dev/icons?i=python&theme=dark" alt="Python" width="56" height="56" loading="lazy"><img src="https://skillicons.dev/icons?i=html&theme=dark" alt="HTML" width="56" height="56" loading="lazy"><img src="https://skillicons.dev/icons?i=css&theme=dark" alt="CSS" width="56" height="56" loading="lazy"><img src="https://skillicons.dev/icons?i=javascript&theme=dark" alt="JavaScript" width="56" height="56" loading="lazy"><img src="https://skillicons.dev/icons?i=kotlin&theme=dark" alt="Kotlin" width="56" height="56" loading="lazy"></div></div>
+      <div class="skill-group"><h3>&gt; DEVELOP</h3><div class="skill-icon-row"><img src="https://skillicons.dev/icons?i=github&theme=dark" alt="GitHub" width="56" height="56" loading="lazy"><img src="https://skillicons.dev/icons?i=git&theme=dark" alt="Git" width="56" height="56" loading="lazy"><img src="https://skillicons.dev/icons?i=anaconda&theme=dark" alt="Anaconda" width="56" height="56" loading="lazy"><img src="https://skillicons.dev/icons?i=opencv&theme=dark" alt="OpenCV" width="56" height="56" loading="lazy"><img src="https://skillicons.dev/icons?i=arduino&theme=dark" alt="Arduino" width="56" height="56" loading="lazy"><img src="https://skillicons.dev/icons?i=vscode&theme=dark" alt="Visual Studio Code" width="56" height="56" loading="lazy"><img src="https://skillicons.dev/icons?i=visualstudio&theme=dark" alt="Visual Studio" width="56" height="56" loading="lazy"></div></div>
+      <div class="skill-group"><h3>&gt; OTHER</h3><div class="skill-icon-row"><img src="https://skillicons.dev/icons?i=ai&theme=dark" alt="Adobe Illustrator" width="56" height="56" loading="lazy"><img src="https://skillicons.dev/icons?i=ps&theme=dark" alt="Adobe Photoshop" width="56" height="56" loading="lazy"><img src="https://skillicons.dev/icons?i=autocad&theme=dark" alt="AutoCAD" width="56" height="56" loading="lazy"><img src="https://skillicons.dev/icons?i=sketchup&theme=dark" alt="SketchUp" width="56" height="56" loading="lazy"><img src="https://skillicons.dev/icons?i=rhino&theme=dark" alt="Rhino" width="56" height="56" loading="lazy"></div></div>
+    </div>
+  </section>
+</div>
 {{ end }}

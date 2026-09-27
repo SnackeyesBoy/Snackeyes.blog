@@ -1,0 +1,127 @@
+.navbar {
+  background-color: var(--color-nav-bg);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+/* 如果切換到白底模式，也要調整半透明顏色 */
+body.light-theme .navbar {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* 調整選單與按鈕的距離 */
+  position: relative;
+}
+
+.theme-btn {
+  background: var(--color-border);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.language-btn {
+  min-width: 40px;
+  height: 36px;
+  margin-left: 10px;
+  border: 0px solid var(--color-border);
+  border-radius: 18px;
+  background: transparent;
+  color: var(--color-text-main);
+  cursor: pointer;
+  font-family: "DM Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.language-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.theme-btn:hover {
+  transform: scale(1.1);
+  background: var(--color-accent);
+}
+
+body::before {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: var(--theme-reveal-color, transparent);
+  clip-path: circle(0 at var(--theme-reveal-x, 50%) var(--theme-reveal-y, 50%));
+  content: "";
+  pointer-events: none;
+}
+
+body.is-theme-revealing::before {
+  clip-path: circle(150vmax at var(--theme-reveal-x) var(--theme-reveal-y));
+  transition: clip-path 560ms cubic-bezier(.65, 0, .35, 1);
+}
+
+/* 用 Emoji 或 Font Awesome 填入圖示 */
+.theme-btn::after {
+  content: '🌙'; /* 預設深色模式顯示月亮 */
+  font-size: 16px;
+}
+
+body.light-theme .theme-btn::after {
+  content: '☀️'; /* 白底模式顯示太陽 */
+}
+
+.nav-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+}
+
+.nav-logo {
+  /* font-weight: 600;
+  color: #FFFFFF;
+  font-size: 1.1rem; */
+  font-weight: 700;
+  color: var(--color-logo);
+  font-size: 1.2rem;
+  transition: color 0.4s ease;
+}
+
+.nav-links a {
+  margin-left: 24px;
+  color: var(--color-text-sub);
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+  color: var(--color-text-main);
+}
+
+/* Main Content */
+.main-content {
+  width: min(1320px, calc(100% - 64px));
+  min-height: calc(100vh - 61px);
+  margin: 22px auto 0;
+  padding: 0 24px;
+  /* Shared 40% glass canvas: every page reads clearly over the fixed contours. */
+  background: color-mix(in srgb, var(--color-bg) 40%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
+  backdrop-filter: blur(18px) saturate(125%);
+  -webkit-backdrop-filter: blur(18px) saturate(125%);
+}

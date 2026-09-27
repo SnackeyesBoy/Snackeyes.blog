@@ -1,0 +1,276 @@
+/* 音樂播放 */
+.player {
+  /* 佈局優化 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  max-width: 700px;       /* 稍微縮小最大寬度，看起來會更像圖片中的精緻感 */
+  width: 90%;             /* 在手機上保持邊距 */
+  margin: 30px auto;      /* 關鍵：auto 確保左右推擠達到水平置中 */
+  padding: 20px;          /* 增加內距，讓裡面的東西不要太擠 */
+  
+  border: 1px solid var(--color-border);
+  border-radius: 40px;
+  background: transparent;
+  border-radius: 40px;      /* 稍微降低圓角，太圓有時會顯得笨重 */
+  font-weight: 500;
+  
+  /* 互動與效能優化 */
+  cursor: pointer;          /* 提示使用者可以互動 */
+  transition: 
+  background-color 0.3s ease, 
+  border-color 0.3s ease, 
+  transform 0.2s ease,
+  box-shadow 0.3s ease;   /* 避免使用 all，針對特定屬性優化效能 */
+}
+
+/* 增加滑鼠懸停效果，增加質感 */
+.player:hover {
+  background-color: rgba(255, 255, 255, 0.05); /* 輕微的高亮 */
+  border-color: #1DB954;        /* 邊框顏色加深 */
+  transform: translateY(-2px);                 /* 輕微浮起感 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);   /* 增加陰影層次 */
+}
+
+/* 點擊時的反饋 */
+.player:active {
+  transform: translateY(0);
+  opacity: 0.8;
+}
+
+.music-img {
+  margin: 20px;
+  width: 200px;
+  height: 2-0px;
+  border-radius: 10px;
+  border: 2px solid var(--color-border);
+  margin-bottom: 16px;
+  box-shadow: #1DB954;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; /* 增加彈性縮放感 */
+}
+
+.music-name{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 3px;
+  margin-bottom: 2px;
+}
+
+.music-singer{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  padding-top: 2px;
+}
+
+.custom-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  background-color: #1DB954; /* 類似 Spotify 的綠色 */
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.custom-button:hover {
+  background-color: #1ed760;
+}
+
+.progress {
+  font-style: italic;
+  text-align: center;
+  
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  cursor: pointer;
+  accent-color: #1DB954; /* 改變進度條主色調（Chrome/Edge 支援） */
+  vertical-align: middle;
+}
+
+.progress-time{
+  margin: 0 auto;
+  padding: 0 auto;
+}
+
+.ig-post-container {
+    max-width: 540px; /* IG 建議的標準寬度 */
+    margin: 20px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* 讓 IG 貼文在手機上也能自適應 */
+.ig-post-container iframe {
+    width: 100% !important;
+    border: none !important;
+}
+.linktree-container {
+  max-width: 480px; /* 限制寬度，模仿手機顯示 */
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+  
+}
+
+/* 頭像樣式 */
+.linktree-avatar {
+  
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  margin-bottom: 16px;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; /* 增加彈性縮放感 */
+}
+
+.linktree-avatar:hover{
+  transform: scale(1.1) rotate(3deg); /* 加上微幅旋轉，更顯俏皮 */
+  opacity: 1;
+}
+
+.linktree-id {
+  margin: 0 auto;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* 卡片設計：毛玻璃 + 圓角 */
+.featured-card {
+  background: var(--color-nav-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.featured-card:hover {
+  transform: scale(1.02);
+}
+
+/* Linktree按鈕樣式：橢圓形、細邊框 */
+.link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 2px solid var(--color-border);
+  color: var(--color-text-main);
+  padding: 16px;
+  border-radius: 50px; /* 橢圓形按鈕 */
+  margin-bottom: 12px;
+  font-weight: 500;
+  
+  transition: all 0.9s ease;
+}
+
+.link-btn:hover {
+  background: var(--color-border);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+.contact-page {
+  width: 100%;
+  min-height: 78vh;
+  margin: 0;
+  padding: 100px 0 120px;
+}
+
+.contact-title {
+  max-width: 1100px;
+  margin: 28px 0 62px;
+  color: var(--color-text-strong);
+  font-size: clamp(54px, 7vw, 108px);
+  line-height: 1.08;
+  letter-spacing: -0.06em;
+}
+
+.contact-intro {
+  margin-bottom: 62px;
+  color: var(--color-text-main);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.contact-intro span {
+  color: var(--color-text-soft);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.contact-email {
+  display: inline-block;
+  margin-bottom: 72px;
+  color: var(--color-accent);
+  font-family: "DM Mono", monospace;
+  font-size: clamp(28px, 4vw, 58px);
+  word-break: break-word;
+}
+
+.contact-links {
+  width: min(100%, 700px);
+  border-top: 1px solid var(--color-divider);
+}
+
+.contact-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--color-divider);
+  color: var(--color-text-strong);
+  font-family: "DM Mono", monospace;
+  font-size: 18px;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.contact-links a:hover {
+  padding-left: 10px;
+  color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .contact-page {
+    width: min(100% - 40px, 1320px);
+    min-height: auto;
+    padding: 72px 0 90px;
+  }
+
+  .contact-title {
+    margin: 22px 0 38px;
+    font-size: clamp(46px, 14vw, 68px);
+  }
+
+  .contact-intro {
+    margin-bottom: 42px;
+    font-size: 17px;
+  }
+
+  .contact-intro span {
+    font-size: 14px;
+  }
+
+  .contact-email {
+    margin-bottom: 48px;
+    font-size: clamp(24px, 8vw, 36px);
+  }
+
+  .contact-links {
+    width: 100%;
+  }
+
+  .contact-links a {
+    padding: 18px 0;
+    font-size: 16px;
+  }
+}

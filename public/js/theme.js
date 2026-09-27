@@ -1,164 +1,133 @@
-// theme.js
-//mobile & pc
-// theme.js
+const translations = {
+  zh: {
+    "nav.about": "關於", "nav.works": "作品列", "nav.blog": "Blog", "nav.contact": "聯絡我",
+    "home.directions": "我持續在做的事", "home.research.title": "Research / 研究", "home.research.body": "生醫影像與訊號處理、眼動與智慧計算。",
+    "home.development.title": "Development / 開發", "home.development.body": "將技術想法整理成清楚、好用的網頁介面。",
+    "home.photography.title": "Photography / 攝影", "home.photography.body": "用街拍和旅行日誌，保存走過城市的光線。",
+    "home.portfolio.title": "新的研究與開發作品集正在整理中。", "home.portfolio.body": "作品頁已準備好承接下一個公開案例。", "home.portfolio.cta": "前往作品集",
+    "home.journal": "攝影日誌", "home.allPosts": "查看全部文章", "home.read": "閱讀文章",
+    "resume.title": "履歷下載", "resume.preview": "預覽", "resume.download": "下載 PDF",
+    "contact.title": "一起做點有意思的事", "contact.intro": "歡迎聊研究、開發、攝影，或一杯好咖啡。", "contact.introEn": "Open to conversations about research, development, photography, and good coffee."
+  },
+  en: {
+    "nav.about": "About", "nav.works": "Works", "nav.blog": "Blog", "nav.contact": "Contact",
+    "home.directions": "What I keep working on", "home.research.title": "Research", "home.research.body": "Biomedical imaging, signal processing, eye tracking, and intelligent computing.",
+    "home.development.title": "Development", "home.development.body": "Turning technical ideas into clear, useful web interfaces.",
+    "home.photography.title": "Photography", "home.photography.body": "Recording cities through street photography and travel journals.",
+    "home.portfolio.title": "New research and development work is in progress.", "home.portfolio.body": "The works page is ready for the next public case study.", "home.portfolio.cta": "View works",
+    "home.journal": "Photography journal", "home.allPosts": "View all posts", "home.read": "Read post",
+    "resume.title": "Resume", "resume.preview": "Preview", "resume.download": "Download PDF",
+    "contact.title": "Let's make something meaningful.", "contact.intro": "Open to conversations about research, development, photography, and good coffee.", "contact.introEn": ""
+  }
+};
 
 document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const themeToggle = document.querySelector("#theme-toggle");
+  const languageToggle = document.querySelector("#language-toggle");
   const menu = document.querySelector("#mobile-menu");
   const menuLinks = document.querySelector(".nav-links");
 
-  // 點擊漢堡圖示
-  menu.addEventListener("click", () => {
-    menu.classList.toggle("is-active");
-    menuLinks.classList.toggle("active");
-
-    /* 刪除原本的 if (classList.contains('active')) { body.style.overflow = 'hidden' }
-           這樣點開選單時，背景頁面依然可以自由滑動。
-        */
-  });
-
-  // 點擊項目後關閉
-  document.querySelectorAll(".nav-links a").forEach((n) => {
-    n.addEventListener("click", () => {
-      menu.classList.remove("is-active");
-      menuLinks.classList.remove("active");
-      // 這裡也不需要恢復 overflow，因為我們沒鎖定它
-    });
-  });
-});
-// 動化觸發邏輯
-const observerOptions = {
-  threshold: 0.3, // 當元素出現 10% 時觸發
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("active");
-      // 如果你希望動畫只跑一次，可以加上下面這行
-      // observer.unobserve(entry.target);
-    }
-  });
-}, observerOptions);
-
-// 抓取所有想要動畫效果的元素
-document
-  .querySelectorAll(
-    ".feed-item, .hero-container, main-content, .section-title, .section, .profile-header",
-  )
-  .forEach((el) => {
-    el.classList.add("reveal"); // 先給它們初始隱藏類別
-    observer.observe(el); // 開始觀察
-  });
-
-// 更換黑白主題
-const toggleBtn = document.getElementById("theme-toggle");
-const body = document.body;
-
-// 1. 頁面載入時：從瀏覽器記憶體檢查上次的主題偏好
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "light-theme") {
-  body.classList.add("light-theme");
-}
-
-// 2. 點擊事件：切換 class 並儲存狀態
-if (toggleBtn) {
-  toggleBtn.addEventListener("click", () => {
-    body.classList.toggle("light-theme");
-
-    // 判斷當前狀態並儲存，下次重新整理才不會跑掉
-    if (body.classList.contains("light-theme")) {
-      localStorage.setItem("theme", "light-theme");
-      console.log("切換至：白色模式");
-    } else {
-      localStorage.setItem("theme", "dark-theme");
-      console.log("切換至：深色模式");
-    }
-  });
-} else {
-  console.error("錯誤：找不到 id 為 theme-toggle 的按鈕！");
-}
-
-
-//亂碼字串
-const initScramble = () => {
-  const letters = "ABCDEFGHIJKLMNO PQRSTUVWXYZ0123456789@#$%^&*";
-  const targets = document.querySelectorAll(".scramble-text");
-
-  const startEffect = (target) => {
-    const originalValue = target.getAttribute("data-value");
-    if (!originalValue) return;
-
-    let iteration = 0;
-    let interval = setInterval(() => {
-      target.innerText = originalValue
-        .split("")
-        .map((letter, index) => {
-          if (index < iteration) {
-            return originalValue[index];
-          }
-          return letters[Math.floor(Math.random() * letters.length)];
-        })
-        .join("");
-
-      if (iteration >= originalValue.length) {
-        clearInterval(interval);
-      }
-      iteration += 1 / 3;
-    }, 30);
+  const applyTheme = (theme) => {
+    body.classList.toggle("light-theme", theme === "light");
+    localStorage.setItem("theme", theme);
   };
+  applyTheme(localStorage.getItem("theme") || "dark");
+  themeToggle?.addEventListener("click", (event) => {
+    const nextTheme = body.classList.contains("light-theme") ? "dark" : "light";
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reducedMotion) {
+      applyTheme(nextTheme);
+      return;
+    }
 
-  // 1. 頁面載入先跑第一次
-  targets.forEach((target) => startEffect(target));
+    const rect = event.currentTarget.getBoundingClientRect();
+    body.style.setProperty("--theme-reveal-x", `${rect.left + rect.width / 2}px`);
+    body.style.setProperty("--theme-reveal-y", `${rect.top + rect.height / 2}px`);
+    body.style.setProperty("--theme-reveal-color", nextTheme === "light" ? "#ffffff" : "#121212");
+    body.classList.add("is-theme-revealing");
 
-  // 2. 每隔 5 秒重複執行
-  setInterval(() => {
-    targets.forEach((target) => startEffect(target));
-  }, 5000); // 5000 毫秒 = 5 秒
-};
+    window.setTimeout(() => applyTheme(nextTheme), 500);
+    window.setTimeout(() => body.classList.remove("is-theme-revealing"), 620);
+  });
 
-// 統一初始化
-document.addEventListener("DOMContentLoaded", () => {
-  initScramble();
+  const applyLanguage = (language) => {
+    document.documentElement.lang = language === "zh" ? "zh-Hant" : "en";
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+      const value = translations[language][element.dataset.i18n];
+      if (value !== undefined) element.textContent = value;
+    });
+    document.querySelectorAll("[data-resume-language]").forEach((element) => {
+      element.hidden = element.dataset.resumeLanguage !== language;
+    });
+    if (languageToggle) languageToggle.textContent = language === "zh" ? "EN" : "中文";
+    localStorage.setItem("language", language);
+  };
+  applyLanguage(localStorage.getItem("language") || "zh");
+  languageToggle?.addEventListener("click", () => applyLanguage((localStorage.getItem("language") || "zh") === "zh" ? "en" : "zh"));
+
+  menu?.addEventListener("click", () => {
+    menu.classList.toggle("is-active");
+    menuLinks?.classList.toggle("active");
+  });
+  document.querySelectorAll(".nav-links a").forEach((link) => link.addEventListener("click", () => {
+    menu?.classList.remove("is-active");
+    menuLinks?.classList.remove("active");
+  }));
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll("[data-scramble]").forEach((scrambleElement) => {
+    const target = scrambleElement.dataset.scramble;
+    if (!target || reducedMotion) return;
+    const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*";
+    const runScramble = () => {
+      let frame = 0;
+      const timer = window.setInterval(() => {
+        scrambleElement.textContent = `# ${target.split("").map((letter, index) => index < frame ? letter : glyphs[Math.floor(Math.random() * glyphs.length)]).join("")}`;
+        frame += 0.34;
+        if (frame < target.length) return;
+        window.clearInterval(timer);
+        scrambleElement.textContent = `# ${target}`;
+        window.setTimeout(runScramble, 1800);
+      }, 42);
+    };
+    runScramble();
+  });
+  const revealTargets = document.querySelectorAll([
+    "main .section", "main .profile-header", "main .page-scramble-header", "main .about-introduction", "main .resume-section", "main .blog-profile",
+    "main .contact-page", "main .blog-page-header", "main .featured-post", "main .blog-section-heading",
+    "main .post-card", "main footer"
+  ].join(", "));
+
+  if (reducedMotion || !("IntersectionObserver" in window)) {
+    revealTargets.forEach((element) => element.classList.add("is-visible"));
+  } else {
+    revealTargets.forEach((element, index) => {
+      element.classList.add("scroll-reveal");
+      element.style.setProperty("--reveal-delay", `${Math.min(index % 3, 2) * 70}ms`);
+    });
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        currentObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -30px" });
+    revealTargets.forEach((element) => observer.observe(element));
+  }
 });
 
-// 音樂播放
-const audio = document.getElementById("myAudio");
-const playBtn = document.getElementById("playBtn");
-const progress = document.getElementById("progress");
-const currentTimeText = document.getElementById("currentTime");
-const durationText = document.getElementById("duration");
-
-// 輔助函式：將秒數格式化為 0:00
-function formatTime(seconds) {
-  let min = Math.floor(seconds / 60);
-  let sec = Math.floor(seconds % 60);
-  return `${min}:${sec < 10 ? "0" + sec : sec}`;
-}
-
-// 1. 當音訊元數據載入後，設定進度條的最大值
-audio.onloadedmetadata = function () {
-  progress.max = audio.duration;
-  durationText.textContent = formatTime(audio.duration);
-};
-
-// 2. 監聽播放時間更新，同步進度條
-audio.ontimeupdate = function () {
-  progress.value = audio.currentTime;
-  currentTimeText.textContent = formatTime(audio.currentTime);
-};
-
-// 3. 使用者拖動進度條時，改變音樂播放位置
-progress.oninput = function () {
-  audio.currentTime = progress.value;
-};
-
-// 播放/暫停按鈕邏輯
-playBtn.onclick = function () {
-  if (audio.paused) {
-    audio.play();
-    playBtn.textContent = "⏹︎";
-  } else {
-    audio.pause();
-    playBtn.textContent = "▶";
+const loader = document.querySelector("#page-loader");
+if (loader) {
+  const finishPageLoad = () => document.body.classList.add("page-ready");
+  try {
+    if (sessionStorage.getItem("snackeyes-home-visited")) {
+      finishPageLoad();
+    } else {
+      sessionStorage.setItem("snackeyes-home-visited", "true");
+      window.setTimeout(finishPageLoad, 1500);
+    }
+  } catch {
+    window.setTimeout(finishPageLoad, 1500);
   }
-};
+}

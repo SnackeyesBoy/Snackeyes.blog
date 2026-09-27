@@ -1,78 +1,44 @@
 {{ define "main" }}
-<!-- <h2><span class="text-teal-600-r" style="font-size:30px">#</span> Contact Me</h2> -->
- <h1 class="scramble-text" data-value="# Contact Me">_</h1>
-    <div class="linktree-container">
-        <header class="linktree-header">
-            <img src="/img/IMG_9925.jpg" alt="Avatar" class="linktree-avatar">
-            <h1 class="linktree-id">@maximilian_snackeyes</h1>
 
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-x-twitter"></i></a>
-            </div>
-            <div class="player">
-                <div class="music-front">
-                    <img src="/img/music_1.png" alt="" class="music-img">
-                </div>
-                <div class="progress" style="color: darkorange;">
-                    <input type="range" id="progress" value="0" step="0.1" style="width: 300px;">
-                    <!-- 顯示時間（可選） -->
-                    <p class="progress-time"></p><span id="currentTime"> 0:00</span> / <span id="duration">0:00</span></p>
-                    <!-- 進度條：min 是 0，max 會在 JS 中動態設定 -->
-                </div>
-                <p class="music-name">Rock'n Roll, Morning Light Falls on You</p>
-                <p class="music-singer">ASIAN KUNG-FU GENERATION</p>
-                <div class="controls">
-                    <button id="playBtn" class="custom-button">▶</button>
-                </div>
-                <audio id="myAudio">
-                <source src="/music/ASIAN KUNG-FU GENERATION - Rock'n Roll, Morning Light Falls on You - akgVEVO.mp3" type="audio/mpeg">
-                </audio>           
-            </div>
-        </header>
-        <!-- <section class="linktree-featured">
-            <div class="featured-card instagram-preview">
-            <img src="img/ig-grid.jpg" alt="IG Preview">
-            <div class="card-info">
-                <span>Instagram</span>
-                <button class="btn-follow">Follow</button>
-            </div>
-            </div>
-        </section> -->
+<section class="contact-page">
+  <header class="page-scramble-header contact-page-title"><h1 data-scramble="Contact Me" aria-label="Contact Me"># Contact Me</h1></header>
+  <p class="eyebrow">// LET'S CONNECT</p>
 
-<div class="linktree-buttons">
-    <a href="https://maps.app.goo.gl/JNzrqAzVmyQVPgD27" class="link-btn">
-        <span class="btn-icon">📍</span> Food Maps
+  <p style="font-size: 2.5rem;" class="contact-title" data-i18n="contact.title">一起做點有意思的事</p>
+
+  <p class="contact-intro">
+    <span data-i18n="contact.intro">歡迎聊研究、開發、攝影，或一杯咖啡</span><br>
+    <span>
+      <span data-i18n="contact.introEn">Open to conversations about research, development, photography, and good coffee.</span>
+    </span>
+  </p>
+
+  <a class="contact-email" href="mailto:smax920410@gmail.com">
+    smax920410@gmail.com ↗
+  </a>
+
+  <div class="contact-links">
+    <a href="https://github.com/SnackeyesBoy"
+       target="_blank"
+       rel="noopener noreferrer">
+      <span>GitHub</span>
+      <span>↗</span>
     </a>
-    <a href="https://maps.app.goo.gl/yTQpG7CN5iWpL1od6" class="link-btn">
-        <span class="btn-icon">☕ </span> Cafe' Maps
+
+    <a href="https://www.instagram.com/hundred_layman/?hl=zh-tw"
+       target="_blank"
+       rel="noopener noreferrer">
+      <span>Photography</span>
+      <span>↗</span>
     </a>
-    
-    <a href="https://www.facebook.com/MaximilianLinakaSnackeyes" class="link-btn">
-        <i class="fab fa-facebook"></i> FaceBook
+
+    <a href="https://www.instagram.com/maximilian_15072/?hl=zh-tw"
+       target="_blank"
+       rel="noopener noreferrer">
+      <span>Instagram</span>
+      <span>↗</span>
     </a>
-    
-    <a href="https://x.com/maximilian_0410" class="link-btn">
-        <i class="fab fa-x-twitter"></i> X (Twitter)
-    </a>
-    
-    <a href="https://www.instagram.com/maximilian_15072/?hl=zh-tw" class="link-btn">
-        <i class="fab fa-instagram"></i> Instagram @maximilian_15072
-    </a>
-    
-    <a href="https://www.instagram.com/hundred_layman/?hl=zh-tw" class="link-btn">
-        <i class="fas fa-camera-retro"></i> Photography
-    </a>
-    
-    <a href="https://discord.gg/UKumyzJ2nb" class="link-btn">
-        <i class="fab fa-discord"></i> Discord Server
-    </a>
-    
-    <a href="https://github.com/SnackeyesBoy" class="link-btn">
-        <i class="fab fa-github"></i> GitHub
-    </a>
-    <a href="mailto:smax920410@gmail.com" class="link-btn">
-        <h3>Mail</h3>
-        <i class="fab fa-mail"></i> Mail
-    </a>
-</div>
+  </div>
+</section>
+
 {{ end }}

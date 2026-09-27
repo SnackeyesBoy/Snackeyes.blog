@@ -1,0 +1,23 @@
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  background-image: var(--background-contours);
+  background-position: center top;
+  /* Keep the minimal contour layer fixed behind the page content. */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--color-text-main);
+  font-family: var(--font-sans);
+  transition: background-color .4s ease, color .4s ease;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+
+/* One heading scale for every page; page CSS controls only layout and spacing. */
+h1 { font-size: 2.5rem !important; }
+h2 { font-size: 1.8rem !important; }
+h3 { font-size: 1rem !important; }

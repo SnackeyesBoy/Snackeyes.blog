@@ -1,142 +1,64 @@
 {{ define "main" }}
+{{ $posts := where .Site.RegularPages "Section" "blog" }}
+{{ $posts = $posts.ByDate.Reverse }}
+{{ $featured := first 1 $posts }}
+{{ $latest := after 1 $posts }}
 
-<h1 class="scramble-text" data-value="# Blog">_</h1>
-<p style="opacity: 0.7; margin-bottom: 2rem;">這裡放了我的攝影集與其他文章。</p>
+<section class="blog-page">
+  <header class="blog-page-header">
+    <h1 class="blog-scramble" data-scramble="Blog" aria-label="Blog"># Blog</h1>
+    <p>記錄攝影、技術與生活裡值得留下的片段。</p>
+  </header>
 
-<div class="profile-header">
-    <div class="banner-box">
-        <img src="/img/2025_08_19_02_17_A7C04754.JPG" class="banner-img" alt="Banner">
+  <section class="blog-profile" aria-label="Hundred Layman 攝影簡介">
+    <div class="blog-profile-banner"><img src="/img/2025_08_19_02_17_A7C04754.JPG" alt="海邊釣魚的街頭攝影作品" width="1400" height="760" fetchpriority="high"></div>
+    <div class="blog-profile-info">
+      <img class="blog-profile-avatar" src="/img/A7C07542.JPG" alt="Hundred Layman 個人頭像" width="160" height="160">
+      <div class="blog-profile-copy">
+        <h2>@ Hundred_layman</h2>
+        <p class="blog-profile-role">Street Photography</p>
+        <p>「百隅十哉。羊川草齋。遊戲人間」</p>
+      </div>
     </div>
+    <div class="blog-profile-tags"><span># Sony A7C</span><span># DSC-T20</span></div>
+  </section>
 
-    <div class="profile-info-container">
-        <div class="avatar-wrapper">
-            <img src="/img/A7C07542.JPG" alt="Profile" class="main-avatar">
-        </div> 
-        <div class="text-content">
-            <h1 class="user-id">@ Hundred_layman<span class="real-name"></span></h1>
-            <p class="user-tags">Street Photography</p>
-            <p class="typing-text">“百隅十哉。羊川草齋。遊戲人間”</p>
-        </div>
+  {{ range $featured }}
+    {{ $post := . }}
+    <article class="featured-post">
+      <a class="featured-post-image" href="{{ .RelPermalink }}" aria-label="閱讀：{{ .Title }}">
+        {{ with .Params.image }}<img src="{{ . | relURL }}" alt="{{ $post.Title }}" width="1200" height="800" fetchpriority="high">{{ else }}<span>SNACKEYES.BLOG</span>{{ end }}
+      </a>
+      <div class="featured-post-content">
+        <p class="featured-label">FEATURED</p>
+        <div class="post-meta"><span>{{ with .Params.categories }}{{ index . 0 }}{{ else }}journal{{ end }}</span><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time></div>
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p class="post-summary">{{ .Summary | plainify | truncate 110 }}</p>
+        {{ with .Params.tags }}<p class="post-tags">{{ range . }}#{{ . }} {{ end }}</p>{{ end }}
+      </div>
+    </article>
+  {{ else }}
+    <p class="blog-empty">尚無發布文章。</p>
+  {{ end }}
+
+  {{ if $latest }}
+    <div class="blog-section-heading"><p class="eyebrow">LATEST</p></div>
+    <div class="post-card-grid">
+      {{ range $latest }}
+        {{ $post := . }}
+        <article class="post-card" data-categories="{{ with .Params.categories }}{{ delimit . "," }}{{ else }}未分類{{ end }}">
+          <a class="post-card-image" href="{{ .RelPermalink }}" aria-label="閱讀：{{ .Title }}">
+            {{ with .Params.image }}<img src="{{ . | relURL }}" alt="{{ $post.Title }}" width="720" height="480" loading="lazy">{{ else }}<span>SNACKEYES.BLOG</span>{{ end }}
+          </a>
+          <div class="post-card-content">
+            <div class="post-meta"><span>{{ with .Params.categories }}{{ index . 0 }}{{ else }}journal{{ end }}</span><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time></div>
+            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            <p class="post-summary">{{ .Summary | plainify | truncate 92 }}</p>
+            {{ with .Params.tags }}<p class="post-tags">{{ range . }}#{{ . }} {{ end }}</p>{{ end }}
+          </div>
+        </article>
+      {{ end }}
     </div>
-</div>
-
-<section class="section">
-    <p class="user-tags"># Sony A7C</p>
-    <p class="user-tags"># DSC-T20</p>
+  {{ end }}
 </section>
-
-<!-- 文章列表與分類篩選區塊 -->
-<section class="section">
-    <h3 style="margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; color: var(--color-accent);">文章列表</h3>
-    
-    <!-- 🎛️ 分類按鈕選單 (透過 JS 控制顯示) -->
-    <div class="category-filter" style="margin-bottom: 2rem; display: flex; gap: 0.8rem; flex-wrap: wrap;">
-        <button class="filter-btn active" data-target="all">ALL 全部</button>
-        <button class="filter-btn" data-target="測試">📸 攝影</button>
-        <button class="filter-btn" data-target="攝影">📸 攝影</button>
-        <button class="filter-btn" data-target="japan">🇯🇵 日本</button>
-        <button class="filter-btn" data-target="life">☕ 生活</button>
-        <button class="filter-btn" data-target="film">🎞️ 底片</button>
-    </div>
-    
-    <div class="blog-post-list" style="display: flex; flex-direction: column; gap: 1.5rem;">
-        {{ range (where .Site.RegularPages "Section" "blog").ByDate.Reverse }}
-            <!-- 這裡我們動態把文章擁有的 categories 變成 HTML data 屬性，方便 JS 撈取 -->
-            <article class="blog-post-item" 
-                     data-categories="{{ if .Params.categories }}{{ delimit .Params.categories ',' }}{{ else }}未分類{{ end }}"
-                     style="padding: 1.2rem; background: rgba(255,255,255,0.02); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem;">
-                
-                <!-- 左側：文字內容 -->
-                <div class="post-left-content" style="flex: 1;">
-                    <span class="post-date" style="font-family: 'Fira Code', monospace; color: #666; font-size: 0.85rem; display: block; margin-bottom: 0.3rem;">
-                        // {{ .Date.Format "2006-01-02" }}
-                    </span>
-                    
-                    <a href="{{ .Permalink }}" style="text-decoration: none; font-size: 1.4rem; color: #fff; font-weight: bold; transition: color 0.2s; display: inline-block; margin-bottom: 0.5rem;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='#fff'">
-                        {{ .Title }}
-                    </a>
-                    
-                    {{ if .Params.categories }}
-                        <div class="post-categories">
-                            {{ range .Params.categories }}
-                                <span class="category-badge" style="background: rgba(0, 204, 153, 0.08); color: var(--color-accent); font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; margin-right: 5px; border: 1px solid rgba(0, 204, 153, 0.2);">{{ . }}</span>
-                            {{ end }}
-                        </div>
-                    {{ end }}
-                </div>
-                
-                <!-- 右側：縮圖紅框處進化 🖼️ -->
-                <div class="post-right-thumb" style="width: 100px; height: 100px; flex-shrink: 0; border-radius: 6px; overflow: hidden; background: #111; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;">
-                    {{ if .Params.image }}
-                        <!-- 如果有上傳圖片，就秀出縮圖 -->
-                        <img src="{{ .Params.image | relURL }}" style="width: 100%; height: 100%; object-fit: cover;" alt="{{ .Title }} Thumbnail">
-                    {{ else }}
-                        <!-- 沒上傳圖片時的極簡預設 icon (或一塊暗色幾何) -->
-                        <span style="color: #333; font-size: 1.5rem;">📸</span>
-                    {{ end }}
-                </div>
-                
-            </article>
-        {{ else }}
-            <p style="color: #444; font-style: italic; font-size: 0.9rem;">_ 尚無發布文章。</p>
-        {{ end }}
-    </div>
-</section>
-
-<!-- ⚡ 核心動態魔法：極簡網頁篩選器 Styles & JavaScript -->
-<style>
-    .filter-btn {
-        background: #16161a;
-        color: #888;
-        border: 1px solid #333;
-        padding: 6px 14px;
-        border-radius: 20px;
-        cursor: pointer;
-        font-size: 0.85rem;
-        transition: all 0.25s ease;
-    }
-    .filter-btn:hover {
-        color: #fff;
-        border-color: #666;
-    }
-    .filter-btn.active {
-        background: rgba(0, 204, 153, 0.1);
-        color: var(--color-accent);
-        border-color: var(--color-accent);
-        box-shadow: 0 0 10px rgba(0, 204, 153, 0.2);
-    }
-</style>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const buttons = document.querySelectorAll('.filter-btn');
-        const articles = document.querySelectorAll('.blog-post-item');
-
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                // 1. 切換按鈕高亮
-                buttons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-
-                const targetCategory = button.getAttribute('data-target').trim();
-
-                // 2. 執行篩選
-                articles.forEach(article => {
-                    // 抓取文章的分類字串，並轉成乾淨的陣列
-                    const rawCategories = article.getAttribute('data-categories') || '';
-                    const articleCategories = rawCategories.split(',').map(cat => cat.trim());
-                    
-                    if (targetCategory === 'all' || articleCategories.includes(targetCategory)) {
-                        article.style.display = 'flex';
-                        setTimeout(() => { article.style.opacity = '1'; }, 10);
-                    } else {
-                        article.style.opacity = '0';
-                        article.style.display = 'none';
-                    }
-                });
-            });
-        });
-    });
-</script>
-
 {{ end }}

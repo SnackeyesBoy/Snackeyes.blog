@@ -1,50 +1,82 @@
 {{ define "main" }}
-<header class="hero">
-            <h1 class="hero-title">Snackeyes.Blog</h1>
-            <p class="scramble-text" data-value="Wellcome! Hi I'm Maximilian :)">Wellcome! Hi I'm Maximilian :)</p>
-            <div class="hero-container">
-                <div class="hero-info">
-                    <div class="typing-container">
-                        <p style="font-weight: 1000;">root@Snackeyes:~#</p>
-                        <p class="typing-text">Master student from <span class="text-teal-600">CCU</span></p>
-                        <!-- <p>like <span class="text-teal-600-y">Web develop</span>, <span class="text-teal-600-r">Tecnology</span>, <a class="text-teal-600-g" href="https://www.instagram.com/hundred_layman/?hl=zh-tw">Photography</a>.</p> -->
-                        <p class="typing-text delay-1">A member of <a class="text-teal-600-p" href="https://sites.google.com/view/ccu-ee-biosas">BioSAS Lab / DSP523</a></p>
-                        <p class="typing-text delay-2 desktop-only">like Web Develop, Technology, Street Photography 📷 !</p>
-                        <p class="typing-text delay-2 mobile-only">like Web/Dev, Tech, Street Photo!</p>
-                        <!-- <p >目前就讀國立中正大學的電機工程研究所中，效力於生醫訊號處理與系統設計實驗室 (BioSAS Lab)，也是位街頭攝影愛好者! 📷</p>
-                        <p>#工程 #攝影 #程式 #藝術</p> -->
-                        <p class="typing-text delay-3">#Engineering #Program <a class="text-teal-600-r" href="https://www.instagram.com/hundred_layman/?hl=zh-tw">#Photography</a> #Art</p>
-                    </div>
-                </div>
-                <div class="hero-img">
-                    <img src="/img/S__2007049.jpg" alt="Profile" class="circle-clip">
-                </div>  
-            </div>
-            
-        </header>
-        
 
-        <!-- <section class="section"> -->
-            <h2 class="section-title">精選專案 (Featured Projects)</h2>
+<section class="section directions-section">
+  <p class="eyebrow">// THREE DIRECTIONS</p>
+  <h1 class="section-title" data-i18n="home.directions">我持續在做的事</h1>
 
-            <article class="feed-item">
-                <div class="feed-content">
-                    <span class="feed-tag">[ EE Research ]</span>
-                    <h3 class="feed-title"><a href="projects/eye-tracker.html">基於眼動追蹤的生醫訊號處理技術研究</a></h3>
-                    <p class="feed-excerpt">本研究利用 BioSAS 實驗室資源，探討生理訊號與視覺注視點之間的關聯，應用於...</p>
-                    <time class="feed-date">2026.03</time>
-                </div>
-                <img src="/img/202205030916099925.png" alt="Eye Tracker Project" class="feed-image">
-            </article>
+  <div class="direction-grid">
+    <article class="direction-card">
+      <span>01</span>
+      <h2 data-i18n="home.research.title">Research / 研究</h2>
+      <p data-i18n="home.research.body">生醫影像與訊號處理、眼動與智慧計算。</p>
+    </article>
 
-            <article class="feed-item">
-                <div class="feed-content">
-                    <span class="feed-tag">[ Film Photography ]</span>
-                    <h3 class="feed-title"><a href="projects/film-series-1.html">底片色調實驗：沙鹿街頭紀錄</a></h3>
-                    <p class="feed-excerpt">利用 Pentax MX 搭配 Kodak Ultramax 400，紀錄台中沙鹿夜間的日系街道氛圍...</p>
-                    <time class="feed-date">2024.10</time>
-                </div>
-                <img src="/path/to/shalu-street-thumb.jpg" alt="Film Series 1" class="feed-image">
-            </article>
-        <!-- </section> -->
+    <article class="direction-card">
+      <span>02</span>
+      <h2 data-i18n="home.development.title">Development / 開發</h2>
+      <p data-i18n="home.development.body">將技術想法整理成清楚、好用的網頁介面。</p>
+    </article>
+
+    <article class="direction-card">
+      <span>03</span>
+      <h2 data-i18n="home.photography.title">Photography / 攝影</h2>
+      <p data-i18n="home.photography.body">用街拍和旅行日誌，保存走過城市的光線。</p>
+    </article>
+  </div>
+</section>
+
+<section class="section portfolio-note">
+  <p class="eyebrow">// WORKS IN PROGRESS</p>
+
+  <h2 class="portfolio-title">
+    <span data-i18n="home.portfolio.title">新的研究與開發作品集正在整理中</span>
+  </h2>
+
+  <p class="portfolio-description">
+    <span data-i18n="home.portfolio.body">作品頁已準備好承接下一個公開案例</span>
+  </p>
+
+  <a class="button portfolio-button" href="{{ "works/" | relURL }}">
+    <span data-i18n="home.portfolio.cta">前往作品集</span> <span>↗</span>
+  </a>
+</section>
+
+<section class="section journal-section">
+  <div class="journal-heading">
+    <div>
+      <p class="eyebrow">// SELECTED JOURNAL</p>
+      <h2 class="section-title" data-i18n="home.journal">攝影日誌</h2>
+    </div>
+
+    <a class="all-posts-link" href="{{ "blog/" | relURL }}">
+      <span data-i18n="home.allPosts">查看全部文章</span> →
+    </a>
+  </div>
+
+  <div class="journal-grid">
+    {{ range first 3 (where site.RegularPages "Section" "blog").ByDate.Reverse }}
+      <article class="journal-card">
+        <a href="{{ .RelPermalink }}">
+          {{ $image := strings.TrimPrefix "/" .Params.image }}
+
+          <img
+            src="{{ $image | relURL }}"
+            alt="{{ .Title }} 的文章縮圖"
+            loading="lazy"
+          >
+
+          <div class="journal-card-content">
+            <p class="journal-meta">
+              {{ .Date.Format "2006.01.02" }} · {{ delimit .Params.categories "/" }}
+            </p>
+
+            <h3>{{ .Title }}</h3>
+            <span><span data-i18n="home.read">閱讀文章</span> ↗</span>
+          </div>
+        </a>
+      </article>
+    {{ end }}
+  </div>
+</section>
+
 {{ end }}

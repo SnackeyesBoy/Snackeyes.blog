@@ -1,0 +1,166 @@
+/* 1. 主容器：確保整體置中與底線 */
+.profile-section {
+  display: flex;
+  align-items: center; 
+  gap: 30px;
+  max-width: 900px;
+  margin: 30px auto; /* 增加上下間距，更有呼吸感 */
+  padding: 30px 0;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 60px;
+}
+
+/* 2. 頭像容器：固定大小並圓形化 */
+.bio-img {
+  flex: 0 0 150px; 
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden; /* 確保圖片不超出圓圈 */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* 讓陰影深邃一點點 */
+}
+
+.bio-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 關鍵：確保不同比例的頭像都能完美填滿 */
+}
+
+
+
+/* 3. 文字資訊：撐開中間空間 */
+.bio-info {
+  flex: 1;
+}
+
+.bio-name {
+  font-size: 2.2rem; /* 稍微放大，增加氣勢 */
+  margin: 0;
+  font-family: var(--font-serif);
+  color: var(--color-text-main);
+}
+
+.bio-title {
+  font-size: 1.1rem;
+  color: var(--color-text-sub);
+  margin-top: 8px;
+  font-weight: 400;
+}
+
+/* 4. 右側裝飾圖 */
+.bio-decoration {
+  display: flex;
+  align-items: center;
+}
+
+.name-inline-img {
+  max-height: 80px; /* 稍微加大裝飾圖高度 */
+  width: auto;
+  border-radius: 8px;
+  opacity: 0.85;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; /* 增加彈性縮放感 */
+}
+
+.name-inline-img:hover {
+  transform: scale(1.1) rotate(2deg); /* 加上微幅旋轉，更顯俏皮 */
+  opacity: 1;
+}
+
+.profile-header {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* 橫幅大圖樣式 */
+.banner-box {
+    width: 100%;
+    height: 400px; /* 你可以根據圖片調整高度 */
+    overflow: hidden;
+    border-radius: 12px; /* 像截圖一樣有一點圓角 */
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 確保大圖不變形 */
+    
+}
+
+
+/* 個人資訊區塊 */
+.profile-info-container {
+    display: flex;
+    align-items: flex-end; /* 讓頭像與文字底部對齊 */
+    padding: 0 40px;
+    margin-top: -60px; /* 關鍵：負的邊距讓這區塊往上跑，壓住大圖 */
+    gap: 20px;
+}
+
+/* 頭像樣式 */
+.avatar-wrapper {
+    width: 150px;
+    height: 150px;
+    border: 5px solid var(--color-bg); /* 加一圈與背景同色的邊框，才有切割感 */
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--color-bg);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; /* 增加彈性縮放感 */
+}
+
+.avatar-wrapper:hover {
+  transform: scale(1.1) rotate(3deg); /* 加上微幅旋轉，更顯俏皮 */
+  opacity: 1;
+}
+
+.main-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* This cap intentionally matches the 900px profile banner above. */
+.about-content {
+  width: min(900px, calc(100% - 40px));
+  margin: 0 auto 96px;
+}
+.about-updated { margin: 0 0 44px; color: var(--color-text-soft); font-family: var(--font-mono); font-size: .8rem; }
+.about-introduction { color: var(--color-text-soft); line-height: 1.8; }
+.about-introduction > :first-child { margin-top: 0; }
+.resume-downloads { padding: 42px 0 0; }
+.resume-download-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+.resume-download-card { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 96px; padding: 20px; border: 1px solid var(--color-divider); background: color-mix(in srgb, var(--color-surface) 70%, transparent); backdrop-filter: blur(14px) saturate(125%); }
+.resume-download-card { color: var(--color-text-strong); transition: transform .22s ease, border-color .22s ease, background-color .22s ease; }
+.resume-download-card:hover { transform: translateY(-4px); border-color: var(--color-accent); background: var(--color-surface-raised); }
+.resume-download-card > b { color: var(--color-accent); font-size: 1.45rem; }
+.resume-download-card > div { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+.resume-download-card a { padding: 8px 11px; border: 1px solid var(--color-divider); color: var(--color-text-strong); font-family: var(--font-mono), monospace; font-size: .78rem; transition: transform .2s ease, border-color .2s ease, color .2s ease; }
+.resume-download-card a:hover { transform: translateY(-2px); border-color: var(--color-accent); color: var(--color-accent); }
+.resume-download-grid strong, .resume-download-grid small { display: block; }
+.resume-download-grid strong { margin-bottom: 5px; font-size: 1rem; }
+.resume-download-grid small { color: var(--color-text-soft); font-family: var(--font-mono), monospace; font-size: .75rem; }
+.resume-section { padding: 48px 0 0; }
+.resume-heading { margin-bottom: 24px; }
+.eyebrow { margin: 0 0 10px; color: var(--color-accent); font-family: var(--font-mono); font-size: .78rem; font-weight: 700; letter-spacing: .08em; }
+.resume-heading h2 { margin: 0; color: var(--color-text-strong); font-size: 1.8rem; line-height: 1.2; }
+.resume-list { border-top: 1px solid var(--color-divider); }
+.resume-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: start; padding: 1rem; border-bottom: 1px solid var(--color-divider); }
+.resume-row { transition: background-color .25s ease, padding-inline .25s ease; }
+.resume-row:hover { padding-inline: 12px; background: color-mix(in srgb, var(--color-surface) 70%, transparent); }
+.resume-row h3 { margin: 0 0 8px; color: var(--color-text-strong); font-size: 1rem; line-height: 1.5; }
+.resume-row p { margin: 0; color: var(--color-text-soft); font-size: 1rem; line-height: 1.55; }
+.resume-row time { padding-top: 2px; color: var(--color-text-soft); font-family: var(--font-mono); font-size: clamp(.9rem, 1.7vw, 1.05rem); letter-spacing: .04em; text-align: right; white-space: nowrap; }
+.profile-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+.profile-tags span { padding: 9px 12px; border: 1px solid var(--color-divider); border-radius: 999px; color: var(--color-text-soft); background: color-mix(in srgb, var(--color-surface) 72%, transparent); font-size: .92rem; }
+.profile-tags span { transition: transform .2s ease, color .2s ease, border-color .2s ease; }
+.profile-tags span:hover { transform: translateY(-3px); color: var(--color-accent); border-color: var(--color-accent); }
+
+.skills-section { padding-bottom: 16px; }
+.skill-groups { display: grid; gap: 34px; }
+.skill-group h3 { margin: 0 0 14px; color: var(--color-text-strong); font-family: var(--font-mono); font-size: 1rem; font-weight: 500; }
+.skill-icon-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.skill-icon-row img { width: 56px; height: 56px; border-radius: 12px; transition: transform .2s ease, filter .2s ease; }
+.skill-icon-row img:hover { filter: brightness(1.08); transform: translateY(-4px); }
