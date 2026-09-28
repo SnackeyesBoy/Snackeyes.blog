@@ -1,6 +1,6 @@
 /* Journal index: one editorial feature followed by a responsive card grid. */
 .blog-page { width: min(1440px, calc(100% - 64px)); margin: 0 auto 96px; }
-.blog-page-header { max-width: 760px; margin: 0 auto; padding: 72px 0 54px; text-align: center; }
+.blog-page-header { max-width: 760px; margin: 0 auto; padding: 72px 0 54px; text-align: left; }
 .blog-page-header h1 { margin: 0 0 12px; color: var(--color-text-strong); line-height: 1.1; }
 .blog-scramble { color: var(--color-text-strong) !important; font-family: var(--font-mono), monospace; letter-spacing: .04em; text-shadow: 0 0 17px color-mix(in srgb, var(--color-accent) 30%, transparent); }
 .blog-page-header > p:last-child { margin: 0; color: var(--color-text-soft); }

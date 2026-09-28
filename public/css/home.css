@@ -433,7 +433,7 @@
    ========================= */
 
 @media (max-width: 768px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 28px;margin-left: 20px; }
   .hero-copy { order: 2; }
   .hero-photo { order: 1; width: 100px; height: 100px; margin: 0 auto; }
   .hero-photo img { width: 100px; height: 100px; margin: 0; }
