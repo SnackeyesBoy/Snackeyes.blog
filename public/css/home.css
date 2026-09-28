@@ -68,6 +68,82 @@
   line-height: 1.75;
 }
 
+/* Brand introduction: text on the left, personal avatar on the right. */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  align-items: center;
+  gap: clamp(32px, 6vw, 92px);
+}
+
+.hero-copy h1 {
+  margin: 10px 0 20px;
+  color: var(--color-text-strong);
+  line-height: 1.25;
+}
+
+.mono {
+  font-family: "DM Mono", "Fira Code", monospace;
+}
+
+.accent { color: var(--color-accent); }
+
+.hero-lead {
+  max-width: 650px;
+  margin: 0;
+  color: var(--color-text-main);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.hero-lead span { color: var(--color-text-soft); }
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 28px 0 18px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--color-divider);
+  color: var(--color-text-strong);
+  font-family: var(--font-mono), monospace;
+  font-size: .88rem;
+  transition: transform .2s ease, border-color .2s ease, background-color .2s ease;
+}
+
+.button:hover { transform: translateY(-3px); border-color: var(--color-accent); }
+.button.primary { background: var(--color-accent); border-color: var(--color-accent); color: #15170f; }
+.button.primary:hover { background: color-mix(in srgb, var(--color-accent) 84%, white); }
+
+.resume-links { margin: 0; color: var(--color-text-soft); font-size: .78rem; }
+.resume-links a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
+
+.hero-photo { position: relative; width: 300px; height: 300px; margin: 0; }
+@media (min-width: 769px) {
+  .hero-photo {
+    transform: translateX(-100px);
+  }
+}
+.hero-photo img {
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  border: 1px solid var(--color-divider);
+  border-radius: 50%;
+  object-fit: cover;
+  /* box-shadow: 18px 18px 0 color-mix(in srgb, var(--color-accent) 20%, transparent); */
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.hero-photo:hover img { transform: rotate(2deg) scale(1.025); box-shadow: 5px 5px 0 color-mix(in srgb, var(--color-accent) 34%, transparent); } 
+.hero-photo figcaption { margin-top: 5px; color: var(--color-text-soft); font-family: var(--font-mono), monospace; font-size: .72rem; letter-spacing: .12em; text-align: right; }
+
 /* =========================
    Terminal typing block
    ========================= */
@@ -357,6 +433,14 @@
    ========================= */
 
 @media (max-width: 768px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+  .hero-copy { order: 2; }
+  .hero-photo { order: 1; width: 100px; height: 100px; margin: 0 auto; }
+  .hero-photo img { width: 100px; height: 100px; margin: 0; }
+  .hero-photo figcaption { text-align: center; }
+  .hero-copy h1 br { display: none; }
+  .hero-actions { margin-top: 22px; }
+
   .hero {
     padding: 48px 0;
   }

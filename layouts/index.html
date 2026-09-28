@@ -1,26 +1,49 @@
 {{ define "main" }}
 
+<section class="hero reveal">
+  <p class="eyebrow">// PERSONAL INDEX · TAIWAN</p>
+  <div class="hero-grid">
+    <div class="hero-copy">
+    <p class="mono accent">Hello, I'm Max / Snackeyes.</p>
+    <h1>Snackeyes<br>.Blog</h1>
+    <p class="hero-lead">{{ hugo.Data.site.intro_zh }}<br>
+      <span>{{ hugo.Data.site.intro_en }}</span>
+    </p>
+      <div class="hero-actions">
+        <a class="button primary" href="{{ "works/" | relURL }}">查看作品 <span>↗</span></a>
+        <a class="button" href="{{ "contact/" | relURL }}">聯絡我 <span>↗</span></a>
+        <a class="button" href="{{ "downloads/yu-xiang-lin-resume-zh.pdf" | relURL }}" target="_blank" rel="noopener">RESUME <span>↗</span></a>
+      </div>
+      <!-- <p class="resume-links mono"><a href="{{ "downloads/yu-xiang-lin-resume-zh.pdf" | relURL }}" target="_blank" rel="noopener">Resume</a></p> -->
+    </div>
+    <figure class="hero-photo">
+      <img src="{{ "img/S__2007049.jpg" | relURL }}" width="400" height="400" alt="Yu-Xiang Lin 的個人肖像">
+      <!-- <figcaption>YU-XIANG LIN / 2026</figcaption> -->
+    </figure>
+  </div>
+</section>
+
 <section class="section directions-section">
   <p class="eyebrow">// THREE DIRECTIONS</p>
-  <h1 class="section-title" data-i18n="home.directions">我持續在做的事</h1>
+  <h2 class="section-title" data-i18n="home.directions">我持續在做的事</h2>
 
   <div class="direction-grid">
     <article class="direction-card">
       <span>01</span>
       <h2 data-i18n="home.research.title">Research / 研究</h2>
-      <p data-i18n="home.research.body">生醫影像與訊號處理、眼動與智慧計算。</p>
+      <p data-i18n="home.research.body">生醫影像與訊號處理、眼動與智慧計算</p>
     </article>
 
     <article class="direction-card">
       <span>02</span>
       <h2 data-i18n="home.development.title">Development / 開發</h2>
-      <p data-i18n="home.development.body">將技術想法整理成清楚、好用的網頁介面。</p>
+      <p data-i18n="home.development.body">將技術想法整理成清楚、好用的網頁介面</p>
     </article>
 
     <article class="direction-card">
       <span>03</span>
       <h2 data-i18n="home.photography.title">Photography / 攝影</h2>
-      <p data-i18n="home.photography.body">用街拍和旅行日誌，保存走過城市的光線。</p>
+      <p data-i18n="home.photography.body">用街拍和旅行日誌，保存走過城市的光線</p>
     </article>
   </div>
 </section>
@@ -29,11 +52,11 @@
   <p class="eyebrow">// WORKS IN PROGRESS</p>
 
   <h2 class="portfolio-title">
-    <span data-i18n="home.portfolio.title">新的研究與開發作品集正在整理中</span>
+    <span data-i18n="home.portfolio.title">研究與開發作品集</span>
   </h2>
 
   <p class="portfolio-description">
-    <span data-i18n="home.portfolio.body">作品頁已準備好承接下一個公開案例</span>
+    <span data-i18n="home.portfolio.body">作品頁正在準備中...</span>
   </p>
 
   <a class="button portfolio-button" href="{{ "works/" | relURL }}">

@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     runScramble();
   });
   const revealTargets = document.querySelectorAll([
-    "main .section", "main .profile-header", "main .page-scramble-header", "main .about-introduction", "main .resume-section", "main .blog-profile",
+    "main .hero", "main .section", "main .profile-header", "main .page-scramble-header", "main .about-introduction", "main .resume-section", "main .blog-profile",
     "main .contact-page", "main .blog-page-header", "main .featured-post", "main .blog-section-heading",
     "main .post-card", "main footer"
   ].join(", "));
