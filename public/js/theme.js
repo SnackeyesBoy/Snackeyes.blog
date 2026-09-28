@@ -7,7 +7,7 @@ const translations = {
     "home.portfolio.title": "研究與開發作品集", "home.portfolio.body": "作品頁正在準備中...", "home.portfolio.cta": "前往作品集",
     "home.journal": "攝影日誌", "home.allPosts": "查看全部文章", "home.read": "閱讀文章",
     "resume.title": "履歷下載", "resume.preview": "預覽", "resume.download": "下載 PDF",
-    "contact.title": "一起做點有意思的事", "contact.intro": "歡迎聊研究、開發、攝影，或一杯好咖啡！", "contact.introEn": "Open to conversations about research, development, photography, and good coffee."
+    "contact.title": "一起做點有意思的事", "contact.intro": "歡迎聊研究、開發、攝影，或一杯咖啡！", "contact.introEn": "Open to conversations about research, development, photography, or a cup of coffee."
   },
   en: {
     "nav.about": "About", "nav.works": "Works", "nav.blog": "Blog", "nav.contact": "Contact",
