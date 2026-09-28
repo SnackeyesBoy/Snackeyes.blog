@@ -242,8 +242,9 @@
 @media (max-width: 768px) {
   .contact-page {
     width: min(100% - 40px, 1320px);
+    margin-left: 15px;
     min-height: auto;
-    padding: 72px 0 90px;
+    padding: 20px 0 90px;
   }
 
   .contact-title {

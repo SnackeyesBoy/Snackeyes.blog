@@ -52,13 +52,13 @@
   .typing-text { width: auto; overflow: visible; white-space: normal; border-right: 0; animation: none; }
   .desktop-only { display: none !important; }
   .mobile-only { display: inline-block !important; }
-  .section { width: calc(100% - 32px); padding: 56px 0; }
+  .section { width: calc(100% - 32px); padding: 20px 0; }
   .direction-grid, .journal-grid { grid-template-columns: 1fr; }
   .direction-card { min-height: auto; border-right: 0; border-bottom: 1px solid var(--color-border); }
   .direction-card:last-child { border-bottom: 0; }
   .journal-heading { flex-direction: column; align-items: flex-start; gap: 14px; }
   .portfolio-note { min-height: auto; }
-  .contact-page { padding: 72px 0 90px; }
+  .contact-page { padding: 20px 0 90px; }
   .contact-title { margin: 22px 0 38px; font-size: clamp(2.3rem, 5vw, 4rem); }
   .contact-intro { margin-bottom: 42px; font-size: 1rem; }
   .contact-intro span { font-size: .875rem; }

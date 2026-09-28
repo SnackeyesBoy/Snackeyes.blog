@@ -1,20 +1,20 @@
 const translations = {
   zh: {
-    "nav.about": "關於", "nav.works": "作品列", "nav.blog": "Blog", "nav.contact": "聯絡我",
+    "nav.about": "關於", "nav.works": "作品", "nav.blog": "Blog", "nav.contact": "聯絡",
     "home.directions": "我持續在做的事", "home.research.title": "Research / 研究", "home.research.body": "生醫影像與訊號處理、眼動與智慧計算。",
     "home.development.title": "Development / 開發", "home.development.body": "將技術想法整理成清楚、好用的網頁介面。",
     "home.photography.title": "Photography / 攝影", "home.photography.body": "用街拍和旅行日誌，保存走過城市的光線。",
-    "home.portfolio.title": "新的研究與開發作品集正在整理中。", "home.portfolio.body": "作品頁已準備好承接下一個公開案例。", "home.portfolio.cta": "前往作品集",
+    "home.portfolio.title": "研究與開發作品集", "home.portfolio.body": "作品頁正在準備中...", "home.portfolio.cta": "前往作品集",
     "home.journal": "攝影日誌", "home.allPosts": "查看全部文章", "home.read": "閱讀文章",
     "resume.title": "履歷下載", "resume.preview": "預覽", "resume.download": "下載 PDF",
-    "contact.title": "一起做點有意思的事", "contact.intro": "歡迎聊研究、開發、攝影，或一杯好咖啡。", "contact.introEn": "Open to conversations about research, development, photography, and good coffee."
+    "contact.title": "一起做點有意思的事", "contact.intro": "歡迎聊研究、開發、攝影，或一杯好咖啡！", "contact.introEn": "Open to conversations about research, development, photography, and good coffee."
   },
   en: {
     "nav.about": "About", "nav.works": "Works", "nav.blog": "Blog", "nav.contact": "Contact",
     "home.directions": "What I keep working on", "home.research.title": "Research", "home.research.body": "Biomedical imaging, signal processing, eye tracking, and intelligent computing.",
     "home.development.title": "Development", "home.development.body": "Turning technical ideas into clear, useful web interfaces.",
     "home.photography.title": "Photography", "home.photography.body": "Recording cities through street photography and travel journals.",
-    "home.portfolio.title": "New research and development work is in progress.", "home.portfolio.body": "The works page is ready for the next public case study.", "home.portfolio.cta": "View works",
+    "home.portfolio.title": "Research & development portfolio", "home.portfolio.body": "The works page is being prepared...", "home.portfolio.cta": "View works",
     "home.journal": "Photography journal", "home.allPosts": "View all posts", "home.read": "Read post",
     "resume.title": "Resume", "resume.preview": "Preview", "resume.download": "Download PDF",
     "contact.title": "Let's make something meaningful.", "contact.intro": "Open to conversations about research, development, photography, and good coffee.", "contact.introEn": ""
