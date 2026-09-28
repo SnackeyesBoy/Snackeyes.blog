@@ -27,6 +27,7 @@
 
 .hero {
   padding: calc(var(--spacing-section) * 1.15) 0;
+  padding: 40px;
   /* margin-bottom: var(--spacing-section);
   border-bottom: 1px solid var(--color-border); */
 }
