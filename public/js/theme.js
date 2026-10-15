@@ -75,6 +75,59 @@ document.addEventListener("DOMContentLoaded", () => {
     menuLinks?.classList.remove("active");
   }));
 
+  const photoLightbox = document.querySelector("#photo-lightbox");
+  if (photoLightbox) {
+    const lightboxImage = photoLightbox.querySelector("img");
+    const lightboxCaption = photoLightbox.querySelector("figcaption");
+    const galleryTriggers = [...document.querySelectorAll(".photo-gallery [data-lightbox-src]")];
+    let activePhotoIndex = 0;
+    let touchStartX = null;
+    const showPhoto = (index) => {
+      if (!galleryTriggers.length) return;
+      activePhotoIndex = (index + galleryTriggers.length) % galleryTriggers.length;
+      const trigger = galleryTriggers[activePhotoIndex];
+      lightboxImage.src = trigger.dataset.lightboxSrc;
+      lightboxImage.alt = trigger.dataset.lightboxAlt || "";
+      lightboxCaption.textContent = trigger.dataset.lightboxAlt || "";
+    };
+    const closeLightbox = () => {
+      photoLightbox.hidden = true;
+      photoLightbox.setAttribute("aria-hidden", "true");
+      document.body.style.removeProperty("overflow");
+    };
+    // 用事件委派確保短碼產生的相片也能可靠地開啟預覽。
+    document.addEventListener("click", (event) => {
+      const trigger = event.target.closest("[data-lightbox-src]");
+      if (!trigger) return;
+      event.preventDefault();
+      activePhotoIndex = Math.max(0, galleryTriggers.indexOf(trigger));
+      showPhoto(activePhotoIndex);
+      photoLightbox.hidden = false;
+      photoLightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      photoLightbox.querySelector(".photo-lightbox-close")?.focus();
+    });
+    photoLightbox.querySelector(".photo-lightbox-close")?.addEventListener("click", closeLightbox);
+    photoLightbox.querySelector(".photo-lightbox-prev")?.addEventListener("click", () => showPhoto(activePhotoIndex - 1));
+    photoLightbox.querySelector(".photo-lightbox-next")?.addEventListener("click", () => showPhoto(activePhotoIndex + 1));
+    photoLightbox.addEventListener("click", (event) => { if (event.target === photoLightbox) closeLightbox(); });
+    photoLightbox.addEventListener("touchstart", (event) => { touchStartX = event.changedTouches[0]?.clientX ?? null; }, { passive: true });
+    photoLightbox.addEventListener("touchend", (event) => {
+      const endX = event.changedTouches[0]?.clientX;
+      if (touchStartX === null || endX === undefined) return;
+      const deltaX = endX - touchStartX;
+      touchStartX = null;
+      if (Math.abs(deltaX) < 45) return;
+      showPhoto(activePhotoIndex + (deltaX < 0 ? 1 : -1));
+    }, { passive: true });
+    document.addEventListener("keydown", (event) => {
+      if (photoLightbox.hidden) return;
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowLeft") showPhoto(activePhotoIndex - 1);
+      if (event.key === "ArrowRight") showPhoto(activePhotoIndex + 1);
+    });
+  }
+
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   document.querySelectorAll("[data-scramble]").forEach((scrambleElement) => {
     const target = scrambleElement.dataset.scramble;
