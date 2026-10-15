@@ -26,6 +26,12 @@ collections:
       - { label: "是否為草稿", name: "draft", widget: "boolean", default: false }
       - { label: "版面配置", name: "layout", widget: "hidden", default: "single" }
       - { label: "文章封面縮圖", name: "image", widget: "image", required: false, default: "" }
+      - name: "gallery"
+        label: "文章相簿（可一次上傳多張）"
+        widget: "list"
+        required: false
+        hint: "上傳後會自動顯示為拼貼相簿；手機版可左右滑動，點圖可放大。"
+        field: { label: "相片", name: "image", widget: "image" }
       
       - name: "categories"
         label: "大類別 (Categories)"
@@ -55,6 +61,12 @@ collections:
       - { label: "是否為草稿", name: "draft", widget: "boolean", default: false }
       - { label: "版面配置", name: "layout", widget: "hidden", default: "single" }
       - { label: "文章封面縮圖", name: "image", widget: "image", required: false, default: "" }
+      - name: "gallery"
+        label: "作品相簿（可一次上傳多張）"
+        widget: "list"
+        required: false
+        hint: "上傳後會自動顯示為拼貼相簿；手機版可左右滑動，點圖可放大。"
+        field: { label: "相片", name: "image", widget: "image" }
       
       - name: "categories"
         label: "大類別 (Categories)"

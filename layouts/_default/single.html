@@ -22,6 +22,10 @@
     {{ .Content }}
   </article>
 
+  {{ with .Params.gallery }}
+    {{ partial "photo-gallery.html" (dict "images" .) }}
+  {{ end }}
+
   {{ if .Params.tags }}
   <footer class="post-footer">
     <div class="post-tags">

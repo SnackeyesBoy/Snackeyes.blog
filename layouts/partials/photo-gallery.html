@@ -1,0 +1,16 @@
+{{- $images := .images | default slice -}}
+{{- $captions := .captions | default slice -}}
+{{- if $images -}}
+<div class="photo-gallery" role="group" aria-label="攝影圖集">
+  {{- range $index, $image := $images -}}
+    {{- $caption := "" -}}
+    {{- if lt $index (len $captions) -}}{{- $caption = index $captions $index -}}{{- end -}}
+    <figure class="photo-gallery-item">
+      <button class="photo-gallery-trigger" type="button" data-lightbox-src="{{ $image | relURL }}" data-lightbox-alt="{{ if $caption }}{{ $caption }}{{ else }}攝影作品 {{ add $index 1 }}{{ end }}" data-gallery-index="{{ $index }}" aria-label="放大檢視：{{ if $caption }}{{ $caption }}{{ else }}攝影作品 {{ add $index 1 }}{{ end }}">
+        <img src="{{ $image | relURL }}" alt="{{ if $caption }}{{ $caption }}{{ else }}攝影作品 {{ add $index 1 }}{{ end }}" loading="lazy">
+      </button>
+      {{- with $caption }}<figcaption>{{ . }}</figcaption>{{ end -}}
+    </figure>
+  {{- end -}}
+</div>
+{{- end -}}
