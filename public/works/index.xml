@@ -1,56 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>作品集 on</title><link>https://snackeyesboy.github.io/Snackeyes.blog/works/</link><description>Recent content in 作品集 on</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 15 Oct 2026 09:55:00 +0000</lastBuildDate><atom:link href="https://snackeyesboy.github.io/Snackeyes.blog/works/index.xml" rel="self" type="application/rss+xml"/><item><title>第三屆勤誠新代盃</title><link>https://snackeyesboy.github.io/Snackeyes.blog/works/%E7%AC%AC%E4%B8%89%E5%B1%86%E5%8B%A4%E8%AA%A0%E6%96%B0%E4%BB%A3%E7%9B%83/</link><pubDate>Thu, 15 Oct 2026 09:55:00 +0000</pubDate><guid>https://snackeyesboy.github.io/Snackeyes.blog/works/%E7%AC%AC%E4%B8%89%E5%B1%86%E5%8B%A4%E8%AA%A0%E6%96%B0%E4%BB%A3%E7%9B%83/</guid><description>&lt;hr&gt;
-&lt;h1 id="自動化產線實務架設與光學瑕疵檢測"&gt;自動化產線實務架設與光學瑕疵檢測&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;2024 第三屆勤誠新代盃 佳作 / 雲科大&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
- &lt;iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/cxvpl59CcEI?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"&gt;&lt;/iframe&gt;
- &lt;/div&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href="https://iarc.yuntech.edu.tw/index.php/newspaperclass/item/1429-61-2024-09-05"&gt;相關報導&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
-&lt;p&gt;隨著智慧製造與人工智慧技術快速發展，自動化產線已逐漸成為現代製造業的重要發展方向。透過自動化設備，企業可以減少重複性工作所需的人力，提升生產效率，並降低人為操作造成的誤差。&lt;/p&gt;
-&lt;p&gt;然而，在產品製造完成後，品質檢查仍常仰賴人工判斷。長時間檢查不僅容易造成視覺疲勞，也可能因人員經驗不同而產生判斷差異。因此，本專題以自動化產線為基礎，結合工業相機、影像處理、深度學習與 AOI（Automated Optical Inspection，自動光學檢測）技術，建置一套能夠自動辨識產品瑕疵的智慧檢測系統。&lt;/p&gt;
-&lt;h2 id="專題目標"&gt;專題目標&lt;/h2&gt;
-&lt;p&gt;本專題主要目標如下：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;建立一套具備自動化作業能力的生產線&lt;/li&gt;
-&lt;li&gt;透過工作時間資料分析各工作站的作業流程&lt;/li&gt;
-&lt;li&gt;使用中央控制系統協調各站點的運作&lt;/li&gt;
-&lt;li&gt;利用工業相機取得產品影像&lt;/li&gt;
-&lt;li&gt;建立產品瑕疵影像資料集與訓練資料&lt;/li&gt;
-&lt;li&gt;使用 YOLOv5 深度學習模型進行瑕疵辨識&lt;/li&gt;
-&lt;li&gt;透過操作介面即時顯示檢測結果&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id="自動化產線架構"&gt;自動化產線架構&lt;/h2&gt;
-&lt;p&gt;本系統由多個工作站組成，各站點分別負責不同的加工、搬運或檢測工作。產線運作時，中央控制系統會依照預先設定的流程，控制設備執行相對應的動作，讓產品能夠依序通過各個工作站。&lt;/p&gt;
-&lt;p&gt;在產線建置過程中，除了確認設備能正常運作，也需要觀察每個站點的工作時間。透過記錄與分析實際作業數據，可以找出流程中的等待時間或瓶頸，並進一步調整控制步驟，使各工作站之間能夠更有效率地協同運作。&lt;/p&gt;
-&lt;p&gt;自動化產線的優點包括：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;減少重複性工作所需的人力&lt;/li&gt;
-&lt;li&gt;降低人工操作造成的誤差&lt;/li&gt;
-&lt;li&gt;提升生產流程的穩定性&lt;/li&gt;
-&lt;li&gt;方便調整不同產品的加工流程&lt;/li&gt;
-&lt;li&gt;讓生產數據更容易被記錄與分析&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="光學瑕疵檢測流程"&gt;光學瑕疵檢測流程&lt;/h2&gt;
-&lt;p&gt;本專題的瑕疵檢測站使用工業相機拍攝產品影像，再透過影像處理與人工智慧模型判斷產品是否合格。整體流程如下：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;產品進入檢測站
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ↓
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;工業相機拍攝影像
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ↓
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;影像前處理與資料整理
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ↓
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;建立訓練資料集
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ↓
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;使用 YOLOv5 訓練模型
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ↓
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;AI 辨識產品瑕疵
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ↓
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;AOI 顯示檢測結果
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ↓
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;排除或更換不良品
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="影像擷取"&gt;影像擷取&lt;/h3&gt;
-&lt;p&gt;產品進入檢測區域後，工業相機會從設定好的角度拍攝產品影像。為了讓模型能夠正確辨識瑕疵，拍攝環境需要盡量保持穩定，包括光源、相機位置、產品距離與背景等條件。&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>作品集 on </title>
+    <link>http://localhost:1313/Snackeyes.blog/works/</link>
+    <description>Recent content in 作品集 on </description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 15 Oct 2026 09:55:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/Snackeyes.blog/works/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>第三屆勤誠新代盃</title>
+      <link>http://localhost:1313/Snackeyes.blog/works/%E7%AC%AC%E4%B8%89%E5%B1%86%E5%8B%A4%E8%AA%A0%E6%96%B0%E4%BB%A3%E7%9B%83/</link>
+      <pubDate>Thu, 15 Oct 2026 09:55:00 +0000</pubDate>
+      <guid>http://localhost:1313/Snackeyes.blog/works/%E7%AC%AC%E4%B8%89%E5%B1%86%E5%8B%A4%E8%AA%A0%E6%96%B0%E4%BB%A3%E7%9B%83/</guid>
+      <description>&lt;hr&gt;&#xA;&lt;h1 id=&#34;自動化產線實務架設與光學瑕疵檢測&#34;&gt;自動化產線實務架設與光學瑕疵檢測&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;2024 第三屆勤誠新代盃 佳作 / 雲科大&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;&#xA;      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/cxvpl59CcEI?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://iarc.yuntech.edu.tw/index.php/newspaperclass/item/1429-61-2024-09-05&#34;&gt;相關報導&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;&#xA;&lt;p&gt;隨著智慧製造與人工智慧技術快速發展，自動化產線已逐漸成為現代製造業的重要發展方向。透過自動化設備，企業可以減少重複性工作所需的人力，提升生產效率，並降低人為操作造成的誤差。&lt;/p&gt;&#xA;&lt;p&gt;然而，在產品製造完成後，品質檢查仍常仰賴人工判斷。長時間檢查不僅容易造成視覺疲勞，也可能因人員經驗不同而產生判斷差異。因此，本專題以自動化產線為基礎，結合工業相機、影像處理、深度學習與 AOI（Automated Optical Inspection，自動光學檢測）技術，建置一套能夠自動辨識產品瑕疵的智慧檢測系統。&lt;/p&gt;&#xA;&lt;h2 id=&#34;專題目標&#34;&gt;專題目標&lt;/h2&gt;&#xA;&lt;p&gt;本專題主要目標如下：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;建立一套具備自動化作業能力的生產線&lt;/li&gt;&#xA;&lt;li&gt;透過工作時間資料分析各工作站的作業流程&lt;/li&gt;&#xA;&lt;li&gt;使用中央控制系統協調各站點的運作&lt;/li&gt;&#xA;&lt;li&gt;利用工業相機取得產品影像&lt;/li&gt;&#xA;&lt;li&gt;建立產品瑕疵影像資料集與訓練資料&lt;/li&gt;&#xA;&lt;li&gt;使用 YOLOv5 深度學習模型進行瑕疵辨識&lt;/li&gt;&#xA;&lt;li&gt;透過操作介面即時顯示檢測結果&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;自動化產線架構&#34;&gt;自動化產線架構&lt;/h2&gt;&#xA;&lt;p&gt;本系統由多個工作站組成，各站點分別負責不同的加工、搬運或檢測工作。產線運作時，中央控制系統會依照預先設定的流程，控制設備執行相對應的動作，讓產品能夠依序通過各個工作站。&lt;/p&gt;&#xA;&lt;p&gt;在產線建置過程中，除了確認設備能正常運作，也需要觀察每個站點的工作時間。透過記錄與分析實際作業數據，可以找出流程中的等待時間或瓶頸，並進一步調整控制步驟，使各工作站之間能夠更有效率地協同運作。&lt;/p&gt;&#xA;&lt;p&gt;自動化產線的優點包括：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;減少重複性工作所需的人力&lt;/li&gt;&#xA;&lt;li&gt;降低人工操作造成的誤差&lt;/li&gt;&#xA;&lt;li&gt;提升生產流程的穩定性&lt;/li&gt;&#xA;&lt;li&gt;方便調整不同產品的加工流程&lt;/li&gt;&#xA;&lt;li&gt;讓生產數據更容易被記錄與分析&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;光學瑕疵檢測流程&#34;&gt;光學瑕疵檢測流程&lt;/h2&gt;&#xA;&lt;p&gt;本專題的瑕疵檢測站使用工業相機拍攝產品影像，再透過影像處理與人工智慧模型判斷產品是否合格。整體流程如下：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;產品進入檢測站&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ↓&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;工業相機拍攝影像&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ↓&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;影像前處理與資料整理&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ↓&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;建立訓練資料集&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ↓&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;使用 YOLOv5 訓練模型&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ↓&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;AI 辨識產品瑕疵&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ↓&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;AOI 顯示檢測結果&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ↓&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;排除或更換不良品&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;影像擷取&#34;&gt;影像擷取&lt;/h3&gt;&#xA;&lt;p&gt;產品進入檢測區域後，工業相機會從設定好的角度拍攝產品影像。為了讓模型能夠正確辨識瑕疵，拍攝環境需要盡量保持穩定，包括光源、相機位置、產品距離與背景等條件。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
