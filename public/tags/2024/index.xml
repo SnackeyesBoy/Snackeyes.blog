@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2024 on </title>
+    <link>http://localhost:1313/Snackeyes.blog/tags/2024/</link>
+    <description>Recent content in 2024 on </description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 15 Oct 2026 09:55:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/Snackeyes.blog/tags/2024/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>第三屆勤誠新代盃</title>
+      <link>http://localhost:1313/Snackeyes.blog/works/%E7%AC%AC%E4%B8%89%E5%B1%86%E5%8B%A4%E8%AA%A0%E6%96%B0%E4%BB%A3%E7%9B%83/</link>
+      <pubDate>Thu, 15 Oct 2026 09:55:00 +0000</pubDate>
+      <guid>http://localhost:1313/Snackeyes.blog/works/%E7%AC%AC%E4%B8%89%E5%B1%86%E5%8B%A4%E8%AA%A0%E6%96%B0%E4%BB%A3%E7%9B%83/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;第三屆勤誠新代盃智慧機器人產學研習營 | 智慧自動化產線整合（佳作）&lt;strong&gt;產線自動化整合&lt;/strong&gt;：主導/參與無人化智慧製造產線架構，整合工業機器手臂運動軌跡控制與上位機控制系統，實現全流程無人自動作業。 &lt;strong&gt;視覺檢測部署&lt;/strong&gt;：導入基於深度學習之 AOI 光學瑕疵檢測系統（YOLOv5），針對產線金屬/工件進行即時辨識，改善傳統人工目視之檢測瓶頸與漏檢率。 &lt;strong&gt;監控介面開發&lt;/strong&gt;：設計品質管控與設備運作狀態監控之 UI 介面，降低操作門檻並提升產線異常排查效率。 &lt;strong&gt;競賽成果&lt;/strong&gt;：於勤誠嘉義智慧工廠產線完成真實場域驗證，自多校頂尖工程團隊中脫穎而出，榮獲大會評審團「佳作」肯定。 &lt;a href=&#34;https://iarc.yuntech.edu.tw/index.php/newspaperclass/item/1429-61-2024-09-05&#34;&gt;相關報導&lt;/a&gt;&lt;a href=&#34;https://youtu.be/cxvpl59CcEI&#34;&gt;競賽影片&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;hr&gt;</description>
+    </item>
+  </channel>
+</rss>
