@@ -1,178 +1,27 @@
-<!DOCTYPE html>
-
-<html lang="zh-Hant">
-<head><script src="/Snackeyes.blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=Snackeyes.blog/livereload" data-no-instant defer></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snackeyes.Blog</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Serif+TC:wght@700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="http://localhost:1313/Snackeyes.blog/css/main.css">
-    
-</head>
-
-<body class="">
-    
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="http://localhost:1313/Snackeyes.blog/" class="nav-logo"><span class="text-teal-600-y">@</span> Snackeyes.Blog</a>
-            <div class="nav-right">
-
-                <div class="menu-toggle" id="mobile-menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-
-                <ul class="nav-links">
-                    <a href="http://localhost:1313/Snackeyes.blog/about/" data-i18n="nav.about">關於</a>
-                    <a href="http://localhost:1313/Snackeyes.blog/works/" data-i18n="nav.works">作品</a>
-                    <a href="http://localhost:1313/Snackeyes.blog/blog/" data-i18n="nav.blog">Blog</a>
-                    <a href="https://linktr.ee/maximilian_snackeyes">LinkTree</a>
-                    <a href="http://localhost:1313/Snackeyes.blog/contact/" data-i18n="nav.contact">聯絡</a>
-                    <button id="language-toggle" class="language-btn" type="button" aria-label="Switch language">EN</button>
-                </ul>
-
-                <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
-                    <div class="mode-icon"></div>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <main class="main-content">
-        
-<main class="post-wrapper">
-  
-  <header class="post-header">
-    <h1>第三屆勤誠新代盃</h1>
-    
-    <div class="post-meta">
-      <time>📅 2026-10-15</time>
-      
-        <span class="post-categories">📁 分類:
-          
-            <span class="meta-category">競賽</span>
-          
-        </span>
-      
-    </div>
-  </header>
-
-  <hr class="post-divider">
-
-  <article class="post-content">
-    <hr>
-<h1 id="自動化產線實務架設與光學瑕疵檢測">自動化產線實務架設與光學瑕疵檢測</h1>
-<blockquote>
-<p>2024 第三屆勤誠新代盃 佳作 / 雲科大</p>
-</blockquote>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/cxvpl59CcEI?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
-
-<blockquote>
-<p><a href="https://iarc.yuntech.edu.tw/index.php/newspaperclass/item/1429-61-2024-09-05">相關報導</a></p>
-</blockquote>
-<h2 id="前言">前言</h2>
-<p>隨著智慧製造與人工智慧技術快速發展，自動化產線已逐漸成為現代製造業的重要發展方向。透過自動化設備，企業可以減少重複性工作所需的人力，提升生產效率，並降低人為操作造成的誤差。</p>
-<p>然而，在產品製造完成後，品質檢查仍常仰賴人工判斷。長時間檢查不僅容易造成視覺疲勞，也可能因人員經驗不同而產生判斷差異。因此，本專題以自動化產線為基礎，結合工業相機、影像處理、深度學習與 AOI（Automated Optical Inspection，自動光學檢測）技術，建置一套能夠自動辨識產品瑕疵的智慧檢測系統。</p>
-<h2 id="專題目標">專題目標</h2>
-<p>本專題主要目標如下：</p>
-<ol>
-<li>建立一套具備自動化作業能力的生產線</li>
-<li>透過工作時間資料分析各工作站的作業流程</li>
-<li>使用中央控制系統協調各站點的運作</li>
-<li>利用工業相機取得產品影像</li>
-<li>建立產品瑕疵影像資料集與訓練資料</li>
-<li>使用 YOLOv5 深度學習模型進行瑕疵辨識</li>
-<li>透過操作介面即時顯示檢測結果</li>
-</ol>
-<h2 id="自動化產線架構">自動化產線架構</h2>
-<p>本系統由多個工作站組成，各站點分別負責不同的加工、搬運或檢測工作。產線運作時，中央控制系統會依照預先設定的流程，控制設備執行相對應的動作，讓產品能夠依序通過各個工作站。</p>
-<p>在產線建置過程中，除了確認設備能正常運作，也需要觀察每個站點的工作時間。透過記錄與分析實際作業數據，可以找出流程中的等待時間或瓶頸，並進一步調整控制步驟，使各工作站之間能夠更有效率地協同運作。</p>
-<p>自動化產線的優點包括：</p>
-<ul>
-<li>減少重複性工作所需的人力</li>
-<li>降低人工操作造成的誤差</li>
-<li>提升生產流程的穩定性</li>
-<li>方便調整不同產品的加工流程</li>
-<li>讓生產數據更容易被記錄與分析</li>
-</ul>
-<h2 id="光學瑕疵檢測流程">光學瑕疵檢測流程</h2>
-<p>本專題的瑕疵檢測站使用工業相機拍攝產品影像，再透過影像處理與人工智慧模型判斷產品是否合格。整體流程如下：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>產品進入檢測站
-</span></span><span style="display:flex;"><span>        ↓
-</span></span><span style="display:flex;"><span>工業相機拍攝影像
-</span></span><span style="display:flex;"><span>        ↓
-</span></span><span style="display:flex;"><span>影像前處理與資料整理
-</span></span><span style="display:flex;"><span>        ↓
-</span></span><span style="display:flex;"><span>建立訓練資料集
-</span></span><span style="display:flex;"><span>        ↓
-</span></span><span style="display:flex;"><span>使用 YOLOv5 訓練模型
-</span></span><span style="display:flex;"><span>        ↓
-</span></span><span style="display:flex;"><span>AI 辨識產品瑕疵
-</span></span><span style="display:flex;"><span>        ↓
-</span></span><span style="display:flex;"><span>AOI 顯示檢測結果
-</span></span><span style="display:flex;"><span>        ↓
-</span></span><span style="display:flex;"><span>排除或更換不良品
-</span></span></code></pre></div><h3 id="影像擷取">影像擷取</h3>
-<p>產品進入檢測區域後，工業相機會從設定好的角度拍攝產品影像。為了讓模型能夠正確辨識瑕疵，拍攝環境需要盡量保持穩定，包括光源、相機位置、產品距離與背景等條件。</p>
-<h3 id="影像前處理">影像前處理</h3>
-<p>拍攝完成的影像需要經過整理與前處理，例如調整影像尺寸、裁切有效區域、改善影像品質，以及標記瑕疵所在位置。良好的資料品質會直接影響後續模型訓練與辨識結果。</p>
-<h3 id="建立資料集">建立資料集</h3>
-<p>資料集需要包含合格品與不同類型的不良品，並為每張影像標記瑕疵的位置與類別。資料種類越完整，模型越能適應實際產線中可能遇到的不同情況。</p>
-<h2 id="yolov5-瑕疵辨識模型">YOLOv5 瑕疵辨識模型</h2>
-<p>本專題使用 YOLOv5 作為物件偵測模型。YOLO（You Only Look Once）能夠在單次運算中同時判斷影像中的物件位置與類別，因此適合應用於需要即時反應的檢測環境。</p>
-<p>模型訓練完成後，系統會將新的產品影像輸入模型，並輸出瑕疵的位置、類別與辨識結果。若產品符合設定條件，系統會判定為合格；若偵測到瑕疵，則會將產品標記為不良品，方便後續處理。</p>
-<p>需要注意的是，模型辨識效果與訓練資料的數量及品質有密切關係。因此，建立資料集時應盡量涵蓋不同角度、光線、位置與瑕疵程度，並持續補充實際產線中取得的新資料。</p>
-<h2 id="操作介面與檢測結果">操作介面與檢測結果</h2>
-<p>為了讓使用者能夠快速掌握產線狀態，本系統搭配操作介面顯示產品影像與 AI 判斷結果。使用者可以透過介面查看目前產品是否合格、瑕疵所在位置，以及檢測過程中的相關資訊。</p>
-<p>這樣的設計能夠降低使用者理解系統的門檻，也能讓不良品在檢測完成後即時被辨識與更換，避免不良產品繼續進入後續製程或出貨階段。</p>
-<p><img src="http://localhost:1313/Snackeyes.blog/img/Snipaste_2026-10-15_11-00-29.webp" alt="自動化產線與光學瑕疵檢測"></p>
-<h2 id="實際操作影片">實際操作影片</h2>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/tlYRe4fZPb4?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
-
-<h2 id="專題成果與效益">專題成果與效益</h2>
-<p>透過自動化設備、影像處理與深度學習模型的整合，本專題完成了從產品輸送、影像擷取、瑕疵辨識到結果顯示的完整流程。相較於完全依賴人工檢查，系統具備以下效益：</p>
-<ul>
-<li>提升產品檢查的一致性</li>
-<li>減少人工檢查的時間與負擔</li>
-<li>協助操作人員快速找出產品瑕疵</li>
-<li>降低不良品流入後續製程的機率</li>
-<li>提供未來擴充智慧製造系統的基礎</li>
-</ul>
-<h2 id="未來展望">未來展望</h2>
-<p>未來可以持續增加不同產品與瑕疵類型的訓練影像，提升模型在不同環境下的辨識能力。此外，也可以導入更多感測器、改善產線資料收集方式，並將檢測結果與生產管理系統整合，建立更完整的智慧工廠架構。</p>
-<p>若能進一步提升模型的辨識速度與準確率，並加入自動分類、排料與品質追蹤功能，將能讓系統從單純的瑕疵檢測，逐步發展為完整的智慧化品質管理系統。</p>
-<h2 id="結語">結語</h2>
-<p>本專題將自動化產線、工業相機、影像處理、YOLOv5 與 AOI 技術加以整合，展示人工智慧應用於製造業品質檢測的可行性。透過自動化與智慧檢測，不僅能提升生產效率，也能改善產品品質與檢查流程。</p>
-<p>這項實務經驗顯示，智慧製造並不只是單一設備的自動化，而是需要結合機械設備、控制系統、影像技術與人工智慧，才能真正建立穩定且具備實用價值的自動化產線。</p>
-
-  </article>
-
-  
-  <footer class="post-footer">
-    <div class="post-tags">
-      
-        <span style="color: #888; margin-right: 10px;">#2024</span>
-      
-    </div>
-  </footer>
-  
-
-</main>
-
-        <footer>
-                <p class="footer">Snackeyes's Blog resorce from Maximilian.Lin</p>
-                <p class="footer">Copyright © 2026 Maximilian. All right resrved.</p>
-        </footer>
-    </main>
-    <script src="http://localhost:1313/Snackeyes.blog/js/theme.js"></script>
-    
-</body>
-</html>
+<!doctype html><html lang=zh-Hant><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Snackeyes.Blog</title><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Serif+TC:wght@700&display=swap" rel=stylesheet><link rel=stylesheet href="https://snackeyesboy.github.io/Snackeyes.blog/css/main.css?v=20261015-gallery2"><link rel=stylesheet href="https://snackeyesboy.github.io/Snackeyes.blog/css/post.css?v=20261015-gallery2"></head><body><nav class=navbar><div class=nav-container><a href=https://snackeyesboy.github.io/Snackeyes.blog/ class=nav-logo><span class=text-teal-600-y>@</span> Snackeyes.Blog</a><div class=nav-right><div class=menu-toggle id=mobile-menu><span class=bar></span>
+<span class=bar></span>
+<span class=bar></span></div><ul class=nav-links><a href=https://snackeyesboy.github.io/Snackeyes.blog/about/ data-i18n=nav.about>關於</a>
+<a href=https://snackeyesboy.github.io/Snackeyes.blog/works/ data-i18n=nav.works>作品</a>
+<a href=https://snackeyesboy.github.io/Snackeyes.blog/blog/ data-i18n=nav.blog>Blog</a>
+<a href=https://linktr.ee/maximilian_snackeyes>LinkTree</a>
+<a href=https://snackeyesboy.github.io/Snackeyes.blog/contact/ data-i18n=nav.contact>聯絡</a>
+<button id=language-toggle class=language-btn type=button aria-label="Switch language">EN</button></ul><button id=theme-toggle class=theme-btn aria-label="Toggle Theme"><div class=mode-icon></div></button></div></div></nav><main class=main-content><main class=post-wrapper><header class=post-header><h1>第三屆勤誠新代盃</h1><div class=post-meta><time>📅 2026-10-15</time>
+<span class=post-categories>📁 分類:
+<span class=meta-category>競賽</span></span></div></header><hr class=post-divider><article class=post-content><hr><h1 id=自動化產線實務架設與光學瑕疵檢測>自動化產線實務架設與光學瑕疵檢測</h1><blockquote><p>2024 第三屆勤誠新代盃 佳作 / 雲科大</p></blockquote><div style=position:relative;padding-bottom:56.25%;height:0;overflow:hidden><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading=eager referrerpolicy=strict-origin-when-cross-origin src="https://www.youtube.com/embed/cxvpl59CcEI?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style=position:absolute;top:0;left:0;width:100%;height:100%;border:0 title="YouTube video"></iframe></div><blockquote><p><a href=https://iarc.yuntech.edu.tw/index.php/newspaperclass/item/1429-61-2024-09-05>相關報導</a></p></blockquote><h2 id=前言>前言</h2><p>隨著智慧製造與人工智慧技術快速發展，自動化產線已逐漸成為現代製造業的重要發展方向。透過自動化設備，企業可以減少重複性工作所需的人力，提升生產效率，並降低人為操作造成的誤差。</p><p>然而，在產品製造完成後，品質檢查仍常仰賴人工判斷。長時間檢查不僅容易造成視覺疲勞，也可能因人員經驗不同而產生判斷差異。因此，本專題以自動化產線為基礎，結合工業相機、影像處理、深度學習與 AOI（Automated Optical Inspection，自動光學檢測）技術，建置一套能夠自動辨識產品瑕疵的智慧檢測系統。</p><h2 id=專題目標>專題目標</h2><p>本專題主要目標如下：</p><ol><li>建立一套具備自動化作業能力的生產線</li><li>透過工作時間資料分析各工作站的作業流程</li><li>使用中央控制系統協調各站點的運作</li><li>利用工業相機取得產品影像</li><li>建立產品瑕疵影像資料集與訓練資料</li><li>使用 YOLOv5 深度學習模型進行瑕疵辨識</li><li>透過操作介面即時顯示檢測結果</li></ol><h2 id=自動化產線架構>自動化產線架構</h2><p>本系統由多個工作站組成，各站點分別負責不同的加工、搬運或檢測工作。產線運作時，中央控制系統會依照預先設定的流程，控制設備執行相對應的動作，讓產品能夠依序通過各個工作站。</p><p>在產線建置過程中，除了確認設備能正常運作，也需要觀察每個站點的工作時間。透過記錄與分析實際作業數據，可以找出流程中的等待時間或瓶頸，並進一步調整控制步驟，使各工作站之間能夠更有效率地協同運作。</p><p>自動化產線的優點包括：</p><ul><li>減少重複性工作所需的人力</li><li>降低人工操作造成的誤差</li><li>提升生產流程的穩定性</li><li>方便調整不同產品的加工流程</li><li>讓生產數據更容易被記錄與分析</li></ul><h2 id=光學瑕疵檢測流程>光學瑕疵檢測流程</h2><p>本專題的瑕疵檢測站使用工業相機拍攝產品影像，再透過影像處理與人工智慧模型判斷產品是否合格。整體流程如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>產品進入檢測站
+</span></span><span style=display:flex><span>        ↓
+</span></span><span style=display:flex><span>工業相機拍攝影像
+</span></span><span style=display:flex><span>        ↓
+</span></span><span style=display:flex><span>影像前處理與資料整理
+</span></span><span style=display:flex><span>        ↓
+</span></span><span style=display:flex><span>建立訓練資料集
+</span></span><span style=display:flex><span>        ↓
+</span></span><span style=display:flex><span>使用 YOLOv5 訓練模型
+</span></span><span style=display:flex><span>        ↓
+</span></span><span style=display:flex><span>AI 辨識產品瑕疵
+</span></span><span style=display:flex><span>        ↓
+</span></span><span style=display:flex><span>AOI 顯示檢測結果
+</span></span><span style=display:flex><span>        ↓
+</span></span><span style=display:flex><span>排除或更換不良品
+</span></span></code></pre></div><h3 id=影像擷取>影像擷取</h3><p>產品進入檢測區域後，工業相機會從設定好的角度拍攝產品影像。為了讓模型能夠正確辨識瑕疵，拍攝環境需要盡量保持穩定，包括光源、相機位置、產品距離與背景等條件。</p><h3 id=影像前處理>影像前處理</h3><p>拍攝完成的影像需要經過整理與前處理，例如調整影像尺寸、裁切有效區域、改善影像品質，以及標記瑕疵所在位置。良好的資料品質會直接影響後續模型訓練與辨識結果。</p><h3 id=建立資料集>建立資料集</h3><p>資料集需要包含合格品與不同類型的不良品，並為每張影像標記瑕疵的位置與類別。資料種類越完整，模型越能適應實際產線中可能遇到的不同情況。</p><h2 id=yolov5-瑕疵辨識模型>YOLOv5 瑕疵辨識模型</h2><p>本專題使用 YOLOv5 作為物件偵測模型。YOLO（You Only Look Once）能夠在單次運算中同時判斷影像中的物件位置與類別，因此適合應用於需要即時反應的檢測環境。</p><p>模型訓練完成後，系統會將新的產品影像輸入模型，並輸出瑕疵的位置、類別與辨識結果。若產品符合設定條件，系統會判定為合格；若偵測到瑕疵，則會將產品標記為不良品，方便後續處理。</p><p>需要注意的是，模型辨識效果與訓練資料的數量及品質有密切關係。因此，建立資料集時應盡量涵蓋不同角度、光線、位置與瑕疵程度，並持續補充實際產線中取得的新資料。</p><h2 id=操作介面與檢測結果>操作介面與檢測結果</h2><p>為了讓使用者能夠快速掌握產線狀態，本系統搭配操作介面顯示產品影像與 AI 判斷結果。使用者可以透過介面查看目前產品是否合格、瑕疵所在位置，以及檢測過程中的相關資訊。</p><p>這樣的設計能夠降低使用者理解系統的門檻，也能讓不良品在檢測完成後即時被辨識與更換，避免不良產品繼續進入後續製程或出貨階段。</p><p><img src=https://snackeyesboy.github.io/Snackeyes.blog/img/Snipaste_2026-10-15_11-00-29.webp alt=自動化產線與光學瑕疵檢測></p><h2 id=實際操作影片>實際操作影片</h2><div style=position:relative;padding-bottom:56.25%;height:0;overflow:hidden><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading=eager referrerpolicy=strict-origin-when-cross-origin src="https://www.youtube.com/embed/tlYRe4fZPb4?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style=position:absolute;top:0;left:0;width:100%;height:100%;border:0 title="YouTube video"></iframe></div><h2 id=專題成果與效益>專題成果與效益</h2><p>透過自動化設備、影像處理與深度學習模型的整合，本專題完成了從產品輸送、影像擷取、瑕疵辨識到結果顯示的完整流程。相較於完全依賴人工檢查，系統具備以下效益：</p><ul><li>提升產品檢查的一致性</li><li>減少人工檢查的時間與負擔</li><li>協助操作人員快速找出產品瑕疵</li><li>降低不良品流入後續製程的機率</li><li>提供未來擴充智慧製造系統的基礎</li></ul><h2 id=未來展望>未來展望</h2><p>未來可以持續增加不同產品與瑕疵類型的訓練影像，提升模型在不同環境下的辨識能力。此外，也可以導入更多感測器、改善產線資料收集方式，並將檢測結果與生產管理系統整合，建立更完整的智慧工廠架構。</p><p>若能進一步提升模型的辨識速度與準確率，並加入自動分類、排料與品質追蹤功能，將能讓系統從單純的瑕疵檢測，逐步發展為完整的智慧化品質管理系統。</p><h2 id=結語>結語</h2><p>本專題將自動化產線、工業相機、影像處理、YOLOv5 與 AOI 技術加以整合，展示人工智慧應用於製造業品質檢測的可行性。透過自動化與智慧檢測，不僅能提升生產效率，也能改善產品品質與檢查流程。</p><p>這項實務經驗顯示，智慧製造並不只是單一設備的自動化，而是需要結合機械設備、控制系統、影像技術與人工智慧，才能真正建立穩定且具備實用價值的自動化產線。</p></article><footer class=post-footer><div class=post-tags><span style=color:#888;margin-right:10px>#2024</span></div></footer></main><footer><p class=footer>Snackeyes's Blog resorce from Maximilian.Lin</p><p class=footer>Copyright © 2026 Maximilian. All right resrved.</p></footer></main><div id=photo-lightbox class=photo-lightbox hidden aria-hidden=true role=dialog aria-modal=true aria-label=放大圖片預覽><button class="photo-lightbox-nav photo-lightbox-prev" type=button aria-label=上一張圖片>‹</button>
+<button class=photo-lightbox-close type=button aria-label=關閉圖片預覽>×</button>
+<button class="photo-lightbox-nav photo-lightbox-next" type=button aria-label=下一張圖片>›</button><figure><img src alt><figcaption></figcaption></figure></div><script src="https://snackeyesboy.github.io/Snackeyes.blog/js/theme.js?v=20261015-gallery2"></script></body></html>

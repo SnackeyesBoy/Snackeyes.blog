@@ -77,6 +77,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const photoLightbox = document.querySelector("#photo-lightbox");
   if (photoLightbox) {
+    // .main-content 使用 backdrop-filter，會在 Safari 形成 fixed 定位的容器；
+    // 將燈箱移到 body，才能永遠以整個視窗置中顯示。
+    document.body.append(photoLightbox);
     const lightboxImage = photoLightbox.querySelector("img");
     const lightboxCaption = photoLightbox.querySelector("figcaption");
     const galleryTriggers = [...document.querySelectorAll(".photo-gallery [data-lightbox-src]")];
