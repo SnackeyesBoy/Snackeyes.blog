@@ -1,7 +1,7 @@
 const translations = {
   zh: {
     "nav.about": "關於", "nav.works": "作品", "nav.blog": "Blog", "nav.contact": "聯絡",
-    "home.directions": "我持續在做的事", "home.research.title": "Research / 研究", "home.research.body": "生醫影像與訊號處理、眼動與智慧計算。",
+    "home.directions": "目前持續在做的事", "home.research.title": "Research / 研究", "home.research.body": "生醫影像與訊號處理、眼動與智慧計算。",
     "home.development.title": "Development / 開發", "home.development.body": "將技術想法整理成清楚、好用的網頁介面。",
     "home.photography.title": "Photography / 攝影", "home.photography.body": "用街拍和旅行日誌，保存走過城市的光線。",
     "home.portfolio.title": "研究與開發作品集", "home.portfolio.body": "作品頁正在準備中...", "home.portfolio.cta": "前往作品集",
@@ -11,7 +11,7 @@ const translations = {
   },
   en: {
     "nav.about": "About", "nav.works": "Works", "nav.blog": "Blog", "nav.contact": "Contact",
-    "home.directions": "What I keep working on", "home.research.title": "Research", "home.research.body": "Biomedical imaging, signal processing, eye tracking, and intelligent computing.",
+    "home.directions": "Keeping working on", "home.research.title": "Research", "home.research.body": "Biomedical imaging, signal processing, eye tracking, and intelligent computing.",
     "home.development.title": "Development", "home.development.body": "Turning technical ideas into clear, useful web interfaces.",
     "home.photography.title": "Photography", "home.photography.body": "Recording cities through street photography and travel journals.",
     "home.portfolio.title": "Research & development portfolio", "home.portfolio.body": "The works page is being prepared...", "home.portfolio.cta": "View works",
