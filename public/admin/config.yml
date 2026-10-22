@@ -13,11 +13,11 @@ public_folder: "/img"
 
 collections:
   # ==========================================
-  # 1. 部落格文章分類 (blog)
+  # 1. 攝影文章分類 (film)
   # ==========================================
-  - name: "blog" 
-    label: "部落格文章"
-    folder: "content/blog"
+  - name: "film"
+    label: "攝影 / Film"
+    folder: "content/film"
     create: true
     slug: "{{slug}}"
     fields:
@@ -27,7 +27,7 @@ collections:
       - { label: "版面配置", name: "layout", widget: "hidden", default: "single" }
       - { label: "文章封面縮圖", name: "image", widget: "image", required: false, default: "" }
       - name: "gallery"
-        label: "文章相簿（可一次上傳多張）"
+        label: "攝影相簿（可一次上傳多張）"
         widget: "list"
         required: false
         hint: "上傳後會自動顯示為拼貼相簿；手機版可左右滑動，點圖可放大。"
@@ -48,7 +48,39 @@ collections:
       - { label: "文章內文", name: "body", widget: "markdown" }
 
   # ==========================================
-  # 2. 作品列分類 (works) 
+  # 2. Blog 文章分類 (blog)
+  # ==========================================
+  - name: "blog"
+    label: "Blog 文章"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "標題", name: "title", widget: "string" }
+      - { label: "發布日期", name: "date", widget: "datetime" }
+      - { label: "是否為草稿", name: "draft", widget: "boolean", default: false }
+      - { label: "版面配置", name: "layout", widget: "hidden", default: "single" }
+      - { label: "文章封面縮圖", name: "image", widget: "image", required: false, default: "" }
+      - name: "gallery"
+        label: "文章相簿（可一次上傳多張）"
+        widget: "list"
+        required: false
+        hint: "上傳後會自動顯示為拼貼相簿；手機版可左右滑動，點圖可放大。"
+        field: { label: "相片", name: "image", widget: "image" }
+      - name: "categories"
+        label: "大類別 (Categories)"
+        widget: "list"
+        summary: "{{fields.category}}"
+        field: { label: "分類名稱", name: "category", widget: "string" }
+      - name: "tags"
+        label: "標籤 (Tags)"
+        widget: "list"
+        summary: "{{fields.tag}}"
+        field: { label: "標籤名稱", name: "tag", widget: "string" }
+      - { label: "文章內文", name: "body", widget: "markdown" }
+
+  # ==========================================
+  # 3. 作品列分類 (works)
   # ==========================================
   - name: "works"
     label: "作品列"

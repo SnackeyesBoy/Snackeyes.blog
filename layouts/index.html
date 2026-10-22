@@ -56,7 +56,7 @@
   </h2>
 
   <p class="portfolio-description">
-    <span data-i18n="home.portfolio.body">作品頁正在準備中...</span>
+    <span data-i18n="home.portfolio.body">作品頁持續新增中...</span>
   </p>
 
   <a class="button portfolio-button" href="{{ "works/" | relURL }}">
@@ -71,13 +71,13 @@
       <h2 class="section-title" data-i18n="home.journal">攝影日誌</h2>
     </div>
 
-    <a class="all-posts-link" href="{{ "blog/" | relURL }}">
+    <a class="all-posts-link" href="{{ "film/" | relURL }}">
       <span data-i18n="home.allPosts">查看全部文章</span> →
     </a>
   </div>
 
   <div class="journal-grid">
-    {{ range first 3 (where site.RegularPages "Section" "blog").ByDate.Reverse }}
+    {{ range first 3 (where site.RegularPages "Section" "film").ByDate.Reverse }}
       <article class="journal-card">
         <a href="{{ .RelPermalink }}">
           {{ $image := strings.TrimPrefix "/" .Params.image }}
