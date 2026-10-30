@@ -1,8 +1,8 @@
 {{ define "main" }}
 {{ $posts := where .Site.RegularPages "Section" "film" }}
 {{ $posts = $posts.ByDate.Reverse }}
-{{ $featured := where $posts "Params.featured" true }}
-{{ $latest := where $posts "Params.featured" "ne" true }}
+{{ $featured := first 1 $posts }}
+{{ $latest := after 1 $posts }}
 
 <section class="blog-page film-page">
   <header class="blog-page-header">
